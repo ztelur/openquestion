@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<title>exhelper</title>
+		<link rel="stylesheet" type="text/css" href="css/login.css">
+		<script type="text/javascript" src="indexconfig.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.addEventListener('load',addCheckListener,false);
+		</script>
+		<div class="mainwraper">
+		<div id="header">
+		
+			<div id="mainheader"> ExHelper</div>
+			<div id="subtitle"> exchange the help</div>
+		
+
+		</div>
+		<div id="main" >
+
+			<div class="formheader"> 
+			<label class="title-label">exhelper login</label>
+			<a href="#register" >register</a>
+			</dvi>
+			<div class="formwraper" display="block">
+			<form action="home.php" method="post" name="log" >
+				<div class="nameinput_wraper">
+					<input type="text" id="username" name="username" placeholder="usename" />
+				</div>
+				<div class="passinput_wraper">
+					<input  require type="password" id="password" name="password" placeholder="password"/>
+
+				</div>
+				<div id="button">
+					<div id="twobuttonline">
+						<input type="submit" name='submit'/>
+
+					</div>
+					<div class="formfooter">
+						<label class="remember"> <input type="checkbox" name="rememberme" value="y" />remember me</label>
+						<label class="fogetpassword"><a href="resetpassword.html">foget password</a></label>
+
+					</div>
+				</div>
+			</form>
+			<div id="showmessage"></div>
+			</div>
+			<div class="registerwraper" display="none" >
+				<form action="register.php" method="post" name="register">
+				<div 
+				<div class="nameinput_wraper" >
+					<input type="text" id="username_r" name="username" placeholder="usename"  />
+				</div>
+				<div class="emailinput_wraper">
+					<input type="email" id="email_r" name="email" placeholder="E-mail address"/>
+				</div>
+				<div class="passinput_wraper">
+					<input type="password" id="password_r" name="password" placeholder="password"/>
+				</div>
+				<div class="passinput_wraper">
+					<input  require type="password" id="password_r2" name="password2" placeholder="password"/>
+				</form>
+				<div class="registerbuttonwraper">
+					<input type="submit" name="submit" />
+				</div>
+			</div>
+
+		</div>
+		</div>
+		<div id="footer"></div>
+	</body>
+</html>

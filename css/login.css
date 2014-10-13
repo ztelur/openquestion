@@ -1,0 +1,30 @@
+body {   text-align: center;
+	vertical-align: center;
+	background-color: #0078d8
+	}
+h1,p ,label{ color: #FFFFFF;}
+div.mainwraper{
+	position: relative;
+	margin-top: 100px;
+}
+label.title-label{
+	text-align: right;
+}
+div#main{
+	position: absolute;
+	margin-left: 800px;
+}
+div#header{
+	color: #FFFFFF;
+	position: absolute;
+	margin-left: 150px;
+	font-size: 40px;
+}
+div.formwraper{
+	padding-top: 10px;
+}
+div.formwraper,div.registerwraper{
+	padding-top: 10px;
+	box-shadow:0 1px 2px rgba(15, 82, 135, 0.25) inset, 0 0 10px rgba(255, 255, 255, 0.3);
+	line-height: 10px;
+}
