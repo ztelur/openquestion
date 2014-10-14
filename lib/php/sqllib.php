@@ -1,5 +1,5 @@
 <?
-public function query($sql)
+function query($sql)
 {
 	if (($connection=mysql_connect('localhost','pma','082203'))===FALSE)
 		die("Could connect to the database");

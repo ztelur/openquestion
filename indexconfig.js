@@ -4,6 +4,7 @@
 * add the listener on the index
 * 
 */
+var xhr=null;
 function addCheckListener () {
 	var username=document.getElementById('username');
 	username.addEventListener('blur',checkUsername,false);
@@ -13,8 +14,11 @@ function addCheckListener () {
 	mail.addEventListener('blur',checkEmail);
 	var pass2=document.getElementById('password_r2');
 	pass2.addEventListener('blur',checkPasswordSame,false);
+	var button=document.getElementById("submitbutton");
+	button.addEventListener('click',checkaccount,false);
 	
 }
+
 /*
 * when it on blur call this function to check the username for two step 
 * 	1 local check if contain the wrong char
@@ -28,11 +32,12 @@ function checkUsername () {
 	}
 	if (name.match("^[a-zA-Z_]*$")=='') {  // username must be char and _ not other
 		//do something
-		alert("username is incorrect by input number or chinese");
+		alert("username is incorrect by input number or chinese");   //wrong
 	} else if (name.length<3||name.length>9) {
 		//do something
 		alert("name length should in 3 ~9");
 	} else {    // is right can check use Ajax
+
 		checkNameRemote(name);
 	}
 
@@ -66,6 +71,7 @@ function checkRegisterName () {
 		//do something
 		alert("name length should in 3 ~9");
 	} else {    // is right can check use Ajax
+		console.log("call function");
 		checkRegisterNameRemote(name);
 	}	
 }
@@ -81,12 +87,19 @@ function checkEmail () {
 	}
 	checkEmailRemote(email);
 }
+function checkaccount () {
+	// body...
+	var username=document.getElementById("username").value;
+	console.log(username);
+	var password=document.getElementById("password").value;
+	checkaccountRemote(username,password);
+}
 /*
 * user ajax check the name user inputed if already exist or don;'t exist'
 */
 
 function check (url,handler) {
-	var xhr=null;
+	//thr is the head file xhr
 	try {
 		xhr=new XMLHttpRequest();
 	} catch (e) {
@@ -97,7 +110,7 @@ function check (url,handler) {
 		return;
 	}
 	// construct the url
-	xhr=onreadystatechange=handler(xhr);
+	xhr.onreadystatechange=handler;
 	xhr.open("GET",url,true);
 	xhr.send(null);
 }
@@ -105,7 +118,7 @@ function checkNameRemote (name) {
 	var url="lib/checkaccount.php?username="+name;
 	check(url,checkNameHandler);
 }
-function checkRegisterRemoteNameRemote (name) {
+function checkRegisterNameRemote (name) {
 	var url="lib/checkaccount.php?username="+name;
 	check(url,checkRegisterNameHandler);
 }
@@ -113,33 +126,65 @@ function checkEmailRemote (email) {
 	var url="lib/checkaccount.php?email="+email;
 	check(url,checkEmail);	
 }
-function checkRegisterNameHandler (xhr) {
-	var right=getXhrText(xhr)
+function checkaccountRemote (username,password) {
+	var url="lib/checkaccount.php?username="+username+"&password="+password;
+
+	check(url,checkaccountHandler);
+}
+function checkaccountHandler () {
+	// body...
+
+	var right=getXhrText(xhr);
+
+	if (right==null) {
+
+	}else {
+		if (right=="true") {   // could jump to the home.php
+			console.log("post form");
+			// document.getElementById("logform").submit();
+		}
+		if (right=="false") {
+			alert("password or account wrong");
+			document.getElementById("logform").reset();
+			console.log("wrong account information");
+			getFocus("username");
+		}
+	}
+}
+function checkRegisterNameHandler () {
+	var right=getXhrText(xhr);
 	if (right==null) {
 
 	}else {
 		if (right=="true") {
 			alert("name already exisit");
+			myclear("username_r");
+			getFocus("username_r");
 		}
 	}
 }
-function checkNameHandler (argument) {
+function checkNameHandler () {
 	var right=getXhrText(xhr)
 	if (right==null) {
-
+		console.log('right==null');		
 	}else {
 		if (right!="true") {
 			alert("name don't exisit");
-		}
+			myclear("username");
+			getFocus("username");
+		} 
+		console.log('right!=true');
 	}
 }
-function checkemailhandler(xhr) {
+function checkemailhandler() {
 	var right=getXhrText(xhr)
 	if (right==null) {
 
 	}else {
 		if (right=="true") {
 			alert("email already exisit");
+			myclear("email_r");
+			getFocus("email_r");
 		}
 	}
 }
@@ -148,6 +193,11 @@ function getXhrText(xhr) {
 	if (xhrStatusIsRight(xhr)) {
 		 return xhr.responseText;
 	}
+	///TODO: check the status !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	console.log("wrong ");
+	console.log(xhr.responseText);
+	// return xhr.responseText;
+
 	return;
 }
 function xhrStatusIsRight (xhr) {
@@ -156,6 +206,20 @@ function xhrStatusIsRight (xhr) {
 			return true;
 		}
 	} 
+	console.log(xhr.readyState);
+	console.log(xhr.status);
 	return false;
+}
+/*
+* clear the text input value 
+*/
+function myclear (id) {
+	document.getElementById(id).value=null;
+}
+/*
+*  get focus 
+*/
+function getFocus(id) {
+	document.getElementById(id).focus();
 }
 

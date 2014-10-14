@@ -13,8 +13,11 @@ function addCheckListener () {
 	mail.addEventListener('blur',checkEmail);
 	var pass2=document.getElementById('password_r2');
 	pass2.addEventListener('blur',checkPasswordSame,false);
+	var button=document.getElementById("submitbutton");
+	button.addEventListener('click',)
 	
 }
+
 /*
 * when it on blur call this function to check the username for two step 
 * 	1 local check if contain the wrong char
@@ -83,6 +86,10 @@ function checkEmail () {
 	}
 	checkEmailRemote(email);
 }
+function checkaccount () {
+	// body...
+
+}
 /*
 * user ajax check the name user inputed if already exist or don;'t exist'
 */
@@ -115,8 +122,23 @@ function checkEmailRemote (email) {
 	var url="lib/checkaccount.php?email="+email;
 	check(url,checkEmail);	
 }
+function checkaccountRemote (usename,password) {
+	var url="lib/checkaccount.php?username="+username+"&password="+password;
+	checka(url,checkaccountHandler);
+}
+function checkaccountHandler (xhr) {
+	// body...
+	var right=getXhrText(xhr);
+	if (right==null) {
+
+	}else {
+		if (right=="true") {   // could jump to the home.php
+			document.getElementById("logform").submit();
+		}
+	}
+}
 function checkRegisterNameHandler (xhr) {
-	var right=getXhrText(xhr)
+	var right=getXhrText(xhr);
 	if (right==null) {
 
 	}else {
