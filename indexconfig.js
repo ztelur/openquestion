@@ -16,7 +16,8 @@ function addCheckListener () {
 	pass2.addEventListener('blur',checkPasswordSame,false);
 	var button=document.getElementById("submitbutton");
 	button.addEventListener('click',checkaccount,false);
-	
+	var button=document.getElementById("submitbutton_r");
+	button.addEventListener("click",checkRegister,false);
 }
 
 /*
@@ -42,6 +43,16 @@ function checkUsername () {
 	}
 
 
+
+}
+function checkRegister () {
+	var name_r=document.getElementById("username_r").value;
+	var email_r=document.getElementById("email_r").value;
+	var password1=document.getElementById("password_r").value;
+	var password2=document.getElementById("password_r2").value;
+	if (name_r!=null&&email_r!=null&&password1!=null&&password2!=null) {
+		checkRegisterRemote(name_r,email_r,password1,password2);
+	}
 
 }
 /*
@@ -114,6 +125,10 @@ function check (url,handler) {
 	xhr.open("GET",url,true);
 	xhr.send(null);
 }
+function checkRegisterRemote (name,email,password1,password2) {
+	var url="lib/checkaccount.php?username="+name+"&email="+email+"&password1="+password1+"&password2="+password2;
+	check(url,checkRegisterHandler);
+}
 function checkNameRemote (name) {
 	var url="lib/checkaccount.php?username="+name;
 	check(url,checkNameHandler);
@@ -124,12 +139,23 @@ function checkRegisterNameRemote (name) {
 }
 function checkEmailRemote (email) {
 	var url="lib/checkaccount.php?email="+email;
-	check(url,checkEmail);	
+	check(url,checkemailhandler);	
 }
 function checkaccountRemote (username,password) {
 	var url="lib/checkaccount.php?username="+username+"&password="+password;
 
 	check(url,checkaccountHandler);
+}
+function checkRegisterHandler () {
+	var right=getXhrText(xhr);
+	if (right==null) {
+
+	} else {
+		if (right=="true") {
+			document.getElementById("registerform").submit();
+		}
+		
+	}
 }
 function checkaccountHandler () {
 	// body...
@@ -141,7 +167,7 @@ function checkaccountHandler () {
 	}else {
 		if (right=="true") {   // could jump to the home.php
 			console.log("post form");
-			// document.getElementById("logform").submit();
+			document.getElementById("logform").submit();
 		}
 		if (right=="false") {
 			alert("password or account wrong");

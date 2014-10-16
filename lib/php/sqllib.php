@@ -1,5 +1,5 @@
 <?
-function query($sql)
+function execsql($sql)
 {
 	if (($connection=mysql_connect('localhost','pma','082203'))===FALSE)
 		die("Could connect to the database");
@@ -9,7 +9,8 @@ function query($sql)
 	$result=mysql_query($sql);
 
 	if ($result===FALSE)
-		die("could not query database");
+		// print($sql);
+		printf("could not query database %s",$sql);
 	return $result;
 }
 

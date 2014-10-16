@@ -14,12 +14,13 @@ if (isset($_POST["username"])&&isset($_POST["password"])) {
 		$sql=sprintf("SELECT * FROM user WHERE username='%s' AND password='%s'",
 				mysql_escape_string($_POST["username"]),mysql_escape_string($_POST["password"]));
 		//exe query
-		$result=mysql_query($sql);
-		
+		print($sql);
 		if ($result===FALSE)
 			die("could not query database");
 		if (mysql_num_rows($result)==1){
 			$_SESSION["authenticated"]=TRUE;
+		} else {
+			$_SESSION["authenticated"]=FALSE;
 		}
         }
         // for test user
