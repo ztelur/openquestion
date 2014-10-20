@@ -14,7 +14,7 @@ function addCheckListener () {
 	var pass2=document.getElementById('password_r2');
 	pass2.addEventListener('blur',checkPasswordSame,false);
 	var button=document.getElementById("submitbutton");
-	button.addEventListener('click',)
+	//button.addEventListener('click',)
 	
 }
 

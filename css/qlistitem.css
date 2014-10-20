@@ -1,0 +1,23 @@
+
+.flag{
+    float: left;
+    display: inline-block;
+    width: 10%;
+    height: 100%;
+}
+
+
+.qcontent {
+    height: 100%;
+    float: left;
+
+}
+ .qcontent .summary{
+
+}
+.qcontent .bottomline{
+
+}
+.started{
+
+}

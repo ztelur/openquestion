@@ -39,7 +39,9 @@
 				var commandArr = commandWithArgs.split(' '),
 					command = commandArr.shift(),
 					args = commandArr.join(' ') + (valueArg || '');
+                alert([command,0,args]);
 				document.execCommand(command, 0, args);
+
 				updateToolbar();
 			},
 			bindHotkeys = function (hotKeys) {
@@ -107,9 +109,18 @@
 					restoreSelection();
 					editor.focus();
 					execCommand($(this).data(options.commandRole));
+
 					saveSelection();
 				});
-				toolbar.find('[data-toggle=dropdown]').click(restoreSelection);
+                /*
+                *  myself write
+                *   to achieve the code block
+                * */
+                toolbar.find('a[data-edit=pre]').click(function () {
+
+                    $(editor).append("<pre> code here</pre>");
+                });
+ 				toolbar.find('[data-toggle=dropdown]').click(restoreSelection);
 
 				toolbar.find('input[type=text][data-' + options.commandRole + ']').on('webkitspeechchange change', function () {
 					var newValue = this.value; /* ugly but prevents fake double-calls due to selection restoration */
@@ -187,7 +198,8 @@
 			'ctrl+e meta+e': 'justifycenter',
 			'ctrl+j meta+j': 'justifyfull',
 			'shift+tab': 'outdent',
-			'tab': 'indent'
+			'tab': 'indent',
+            'ctrl+m ':'pre'
 		},
 		toolbarSelector: '[data-role=editor-toolbar]',
 		commandRole: 'edit',

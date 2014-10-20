@@ -1,73 +1,166 @@
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 	<head>
 		<title>exhelper</title>
-		<link rel="stylesheet" type="text/css" href="css/login.css">
-		<script type="text/javascript" src="indexconfig.js"></script>
+        <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+
+        <script type="text/javascript" src="indexconfig.js"></script>
+        <script type="text/javascript" src="js/header.js"></script>
+        <script type="text/javascript"src="js/ButtonListener.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/origin.css">
+        <link rel="stylesheet" type="text/css" href="css/qlistitem.css">
+
+
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
 	</head>
 	<body>
 		<script type="text/javascript">
 			window.addEventListener('load',addCheckListener,false);
 		</script>
+
+        <div class="topbar" >
+            <nav class="navbar navbar-default navbar-inverse" role="navigation">
+            <div class="container-fuild">
+                <div class="network-items">
+                    <a class="navbar-brand">
+                        Open Question
+                    </a>
+                </div>
+                <div class="topbar-links">
+                    <div class="links-container">
+                        <div class="collapse navbar-collapse" >
+                             <form  class="navbar-form navbar-right" role="search">
+                                    <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="search" name="search"/>
+                                    </div>
+                                 </form>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a id="register-link"class="register-link" href="">sign up</a></li>
+                            <li><a id="login-link"class="login-link" href="">log in</a></li>
+                            <li><a id="tour" class="tour" href="">tour</a><li>
+                            <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">help center <span class="caret"></span></a>
+                                  <ul class="dropdown-menu" role="menu">
+                                     <li><a href="#">ask question</a></li>
+                                    <li><a href="#">answer question</a></li>
+                                    <li><a href="#">sign up question</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">something else</a></li>
+
+                                  </ul>
+                            </li>
+                            </ul>
+
+
+
+                        </div>
+            </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
 		<div class="mainwraper">
-		<div id="header">
-		
-			<div id="mainheader"> ExHelper</div>
-			<div id="subtitle"> exchange the help</div>
-		
 
-		</div>
-		<div id="main" >
+		<div class="container">
+            <div id="header" class="container-fuild">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="container-fluid">
+                <div id="hlogo" class="navbar-header" >
+                    <a class="navbar-brand" href="/">
+                        Open Question
+                    </a>
+                </div>
+                <div id="hmenu" class="collapse navbar-collapse" >
+                    <div >
+                        <ul class="nav navbar-nav">
+                            <li> <a>Question</a></li>
+                            <li><a>Tags</a></li>
+                            <li><a>Users</a></li>
+                            <li><a id="askquestion">Ask Question</a></li>
+                        </ul>
+                    </div>
+                </div>
+                        </div>
+                </nav>
+            </div>
+            <div class="jumbotron">
+                <h1>Open Question</h1>
+                <p>
+                    ask freely,and think freely
+                </p>
+            </div>
 
-			<div class="formheader"> 
-			<label class="title-label">exhelper login</label>
-			<a href="#register" >register</a>
-			</dvi>
-			<div class="formwraper" display="block">
-			<form action="home.php" method="post" name="log" id="logform">
-				<div class="nameinput_wraper">
-					<input type="text" id="username" name="username" placeholder="usename" />
-				</div>
-				<div class="passinput_wraper">
-					<input  require type="password" id="password" name="password" placeholder="password"/>
+            <div id="content" class="container">
+                <div id="mainbar" class="container">
+                    <div id="subheader" class="container">
+                        <h1 id="h-top-question"> Top Questions</h1>
+                        <div id="tabs" class="container">
+                            <ul class="pagination">
+                            <li><a>interesting</a></li>
+                            <li><a>hot</a></li>
+                            <li><a>week</a></li>
+                            <li><a>month</a></li>
+                                </ul>
+                        </div>
+                    </div>
+                    <div id="qlist-wrapper">
+                        <div id="question-mini-list">
+                            <!--a question layout-->
+                            <div id="question-summary-00000001">
 
-				</div>
-				<div id="button">
-					<div id="twobuttonline">
-						<input type="button"  value="Submit" id="submitbutton"/>
+                                <div  class="flag">
+                                    <ul class="list-group" >
+                                        <li class="list-group-item" class="votes"><span class="badge">0</span>votes </li>
+                                        <li class="list-group-item" class="answers"><span class="badge">0</span> answers</li>
 
-					</div>
-					<div class="formfooter">
-						<label class="remember"> <input type="checkbox" name="rememberme" value="y" />remember me</label>
-						<label class="fogetpassword"><a href="resetpassword.html">foget password</a></label>
+                                        </ul>
+                                    </div>
+                                <div class="panel panel-default" class="qcontent">
+                                <div class="summary" class="panel-heading">
+                                    <a class="panel-title">how cant java call the python function</a>
+                                </div>
+                                <div class="panel-body"class="bottomline">
+                                    <div class="tags">
+                                       <a class="label label-primary">python</a>
+                                         <a class="label label-primary">java</a>
+                                    </div>
+                                <div class="started">
+                                    <a>asked 0s ago</a>
+                                    <a>ztelur</a>
+                                    <span>1</span>
+                                </div>
+                                </div>
 
-					</div>
-				</div>
-			</form>
-			<div id="showmessage"></div>
-			</div>
-			<div class="registerwraper" display="none" >
-				<form action="home.php" method="post" name="register" id="registerform">
-				<div 
-				<div class="nameinput_wraper" >
-					<input type="text" id="username_r" name="username" placeholder="usename"  />
-				</div>
-				<div class="emailinput_wraper">
-					<input type="email" id="email_r" name="email" placeholder="E-mail address"/>
-				</div>
-				<div class="passinput_wraper">
-					<input type="password" id="password_r" name="password" placeholder="password"/>
-				</div>
-				<div class="passinput_wraper">
-					<input  require type="password" id="password_r2" name="password2" placeholder="password"/>
-				</form>
-				<div class="registerbuttonwraper">
-					<input type="button" value="submit" id="submitbutton_r"/>
-				</div>
-			</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--slid bar-->
+                <div id="sidebar">
+                    <div>
+                        <h4><a>Hot Questions</a></h4>
+                        <ul>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+
+
 
 
 		</div>
 		</div>
 		<div id="footer"></div>
+        </div>
+            </div>
 	</body>
 </html>
