@@ -78,5 +78,15 @@ $(document).ready(function () {
         $("#tag-suggestions").empty();
         $("#tag-suggestions").hide();
     });
+    $("post-form").submit(function () {
+        var utitle=$("#title").val();
+        var utag=$("#tagname").val();
+        var utext=$("#editor").html();
+        var data={title:utitle,content:utext,taglist:utag};
+        $.post("submit.php",data, function (cdata, cstatus) {
+            //window.location.href="../".utitle.".html";
+        })
+
+    });
 });
 
