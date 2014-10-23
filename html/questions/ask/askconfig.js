@@ -74,19 +74,23 @@ $(document).ready(function () {
             $("#tag-suggestions").hide();
         }
         });
-    $("tagname").blur(function () {
+    $("#tagname").blur(function () {
         $("#tag-suggestions").empty();
         $("#tag-suggestions").hide();
     });
-    $("post-form").submit(function () {
+    $("#post-form").submit(function () {
         var utitle=$("#title").val();
         var utag=$("#tagname").val();
         var utext=$("#editor").html();
-        var data={title:utitle,content:utext,taglist:utag};
+        var data={title:utitle,content:utext,tagname:utag};
         $.post("submit.php",data, function (cdata, cstatus) {
-            //window.location.href="../".utitle.".html";
-        })
+            alert(cdata);
+
+            window.location.href=cdata;
+        });
+    return false;
 
     });
+
 });
 
