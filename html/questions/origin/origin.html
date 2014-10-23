@@ -10,7 +10,8 @@
 	<link href="../../external/font-awesome/css/font-awesome.css" rel="stylesheet">
 	<script type="text/javascript" src="../../external/js/jquery.hotkeys.js"></script>
 	<script type="text/javascript" src="../../js/bootstrap-wysiwyg.js"></script>
-    <script type="text/javascript" src="../../external/google-code-prettify/prettify.js"></script>
+    <script type="text/javascript" src="/external/google-code-prettify/prettify.js"></script>
+    <link rel="stylesheet" href="origin/origin.css">
     <title></title>
 </head>
     <div>
@@ -86,13 +87,24 @@
                         <div class="question" data-questionid="" id="question">
                             <table>
                                 <tbody>
-                                    <tr class="votecell"></tr>
-                                    <tr class="postcell">
-                                        <div>
-                                            <div class="post-text" itemprop="text"></div>
-                                            <div class="post-taglist"></div>
-                                        </div>
+                                    <tr >
+                                        <td class="votecell">
+                                                    <i class="icon-thumbs-up-alt">
+                                                        <a class="vote-up-off" icon-thumbs-up-alt title="this question is useful and clear"></a>
+                                                    </i>
+                                                    <span itemprop="upvotecount" class="vote-count-post">0</span>
+                                                    <i class="icon-thumbs-down-alt">
+                                                        <a class="vote-down-off" class="icon-thumbs-down-alt" title="it's unclear and not useful"></a>
+                                                    </i>
+                                        </td>
+                                        <td class="postcell">
+                                            <div>
+                                                <div class="post-text" itemprop="text"></div>
+                                                <div class="post-taglist"></div>
+                                            </div>
+                                        </td>
                                     </tr>
+
                                 </tbody>
                             </table>
 
@@ -110,7 +122,9 @@
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td class="votecell"></td>
+                                            <td class="votecell">
+
+                                            </td>
                                             <td class="answercell">
                                                 <div class="post-text" itemprop="text">
 
@@ -120,6 +134,59 @@
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+                    </div>
+                    <div id="sidebar">
+                        <div id="feed-link">
+                            <div id="fedd-link-text">
+                                <a href="" title="feed of this question and its answers">
+                                    <i class="fa fa-rss"></i>
+                                    question feed
+                                </a>
+                            </div>
+                        </div>
+                        <div class="module question-stats">
+                            <table id="qinfo">
+                                <tbody>
+                                    <tr>
+                                        <td><p class="label-key">asked</p></td>
+                                        <td><p class="label-key" title="2014-05-23 19:05:172">
+                                            <b> 4 month ago</b>
+                                        </p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="label-key">viewed</p></td>
+                                        <td><p class="label-key"><b>320 times</b></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="label-key">active</p></td>
+                                        <td><p class="label-key">
+                                            <b><a href="?lastactivity" class="lastactivity-link" title="2014-10-22">today</a></b>
+                                        </p></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="module community-bulletin"></div>
+                        <div class="module sidebar-linked">
+                            <h4 id="h-linked">Linked</h4>
+                            <div class="linked" >
+                                <div class="spacer">
+                                    <a href="" title="Vote Score"><div class="answer-votes default">0</div></a>
+                                    <a href="" class="question-hyperlink">Reader in swift</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="hot-network-questions" class="module">
+                            <h4>
+                                <a href="//8888/question?tab=hot" class="">Hot Network Questions</a>
+                                <ul>
+                                    <li>
+                                        <div class="" title=""></div>
+                                        <a href="">center of mass frame for massless particles</a>
+                                    </li>
+                                </ul>
+                            </h4>
                         </div>
                     </div>
                 </div>

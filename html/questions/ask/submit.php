@@ -10,7 +10,7 @@ require("../../../external/simplehtmldom/simple_html_dom.php");
 if (isset($_POST["title"])&&isset($_POST["content"])&&isset($_POST["tagname"])) {
     $filepath="../".$_POST["title"].".html";
 
-    copyfile("../origin.html",$filepath);
+    copyfile("../origin/origin.html",$filepath);
     // 处理新的html文件
 
     writeinformation($_POST["title"],$_POST["content"],$_POST["tagname"],$filepath);
