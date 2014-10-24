@@ -23,7 +23,7 @@
 }
 .question{
     clear: both;
-    width: 728px;
+    width: 100% ;
 }
 table{
     border-collapse: collapse;
@@ -32,4 +32,15 @@ table{
 .votecell{
     width: 60px;
     vertical-align: top;
+}
+.vote-up-off{
+    display: block;
+    cursor: pointer
+}
+.vote-down-off{
+    display: block;
+    cursor: pointer
+}
+a{
+    text-decoration: none;
 }

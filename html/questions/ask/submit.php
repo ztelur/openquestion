@@ -14,9 +14,12 @@ if (isset($_POST["title"])&&isset($_POST["content"])&&isset($_POST["tagname"])) 
     // 处理新的html文件
 
     writeinformation($_POST["title"],$_POST["content"],$_POST["tagname"],$filepath);
-//    header("Location:".$filepath);
-    // tell the url the window need to jump
+    // need write somthing inot the datbase
+
     echo $filepath;
+
+}
+function wirtesql($title,$tagname) {
 
 }
 function writeinformation($title,$content,$tagname,$path) {

@@ -84,8 +84,6 @@ $(document).ready(function () {
         var utext=$("#editor").html();
         var data={title:utitle,content:utext,tagname:utag};
         $.post("submit.php",data, function (cdata, cstatus) {
-            alert(cdata);
-
             window.location.href=cdata;
         });
     return false;

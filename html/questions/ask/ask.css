@@ -18,3 +18,23 @@
 #tagname{
     height: 30px;
 }
+#mainbar{
+    margin-top: 20px;
+    float: left;
+    margin-bottom: 40px;
+}
+#sidebar{
+    margin-top: 20px;
+    overflow: hidden;
+    float: right;
+    margin-bottom: 60px;
+    width: 270px;
+}
+.container{
+    width: 660px !important;
+}
+#maincontent{
+    margin: 0 auto;
+    width: 980px;
+    min-height: 450px;
+}
