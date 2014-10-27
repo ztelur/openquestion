@@ -92,7 +92,7 @@ function checkRegisterName () {
 function checkEmail () {
 
 	var email=document.getElementById("email_r").value;
-	// index.html input type=email if brower not support html5 
+	// index.php input type=email if brower not support html5
 	if (email==null) {
 		return;
 	}
@@ -126,23 +126,23 @@ function check (url,handler) {
 	xhr.send(null);
 }
 function checkRegisterRemote (name,email,password1,password2) {
-	var url="lib/checkaccount.php?username="+name+"&email="+email+"&password1="+password1+"&password2="+password2;
+	var url="../../lib/checkaccount.php?username="+name+"&email="+email+"&password1="+password1+"&password2="+password2;
 	check(url,checkRegisterHandler);
 }
 function checkNameRemote (name) {
-	var url="lib/checkaccount.php?username="+name;
+	var url="../../lib/checkaccount.php?username="+name;
 	check(url,checkNameHandler);
 }
 function checkRegisterNameRemote (name) {
-	var url="lib/checkaccount.php?username="+name;
+	var url="../../lib/checkaccount.php?username="+name;
 	check(url,checkRegisterNameHandler);
 }
 function checkEmailRemote (email) {
-	var url="lib/checkaccount.php?email="+email;
+	var url="../../lib/checkaccount.php?email="+email;
 	check(url,checkemailhandler);	
 }
 function checkaccountRemote (username,password) {
-	var url="lib/checkaccount.php?username="+username+"&password="+password;
+	var url="../../lib/checkaccount.php?username="+username+"&password="+password;
 
 	check(url,checkaccountHandler);
 }
@@ -165,7 +165,7 @@ function checkaccountHandler () {
 	if (right==null) {
 
 	}else {
-		if (right=="true") {   // could jump to the home.php
+		if (right=="true") {   // could jump to the index.php
 			console.log("post form");
 			document.getElementById("logform").submit();
 		}

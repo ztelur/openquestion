@@ -8,6 +8,7 @@ function execsql($sql)
 		die("Could select the database");
 	$result=mysql_query($sql);
 
+
 	if ($result===FALSE)
 		// print($sql);
 		printf("could not query database %s",$sql);

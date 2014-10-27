@@ -17,68 +17,12 @@
     <title></title>
 </head>
     <div>
-                 <div class="topbar" >
-            <nav class="navbar navbar-default navbar-inverse" role="navigation">
-            <div class="container-fuild">
-                <div class="network-items">
-                    <a class="navbar-brand">
-                        Open Question
-                    </a>
-                </div>
-                <div class="topbar-links">
-                    <div class="links-container">
-                        <div class="collapse navbar-collapse" >
-                             <form  class="navbar-form navbar-right" role="search">
-                                    <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="search" name="search"/>
-                                    </div>
-                                 </form>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a id="register-link"class="register-link" href="">sign up</a></li>
-                            <li><a id="login-link"class="login-link" href="">log in</a></li>
-                            <li><a id="tour" class="tour" href="">tour</a><li>
-                            <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">help center <span class="caret"></span></a>
-                                  <ul class="dropdown-menu" role="menu">
-                                     <li><a href="#">ask question</a></li>
-                                    <li><a href="#">answer question</a></li>
-                                    <li><a href="#">sign up question</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">something else</a></li>
-
-                                  </ul>
-                            </li>
-                            </ul>
+        <?php
+                require("../../../lib/php/pagepart/topbar.php");
+                require("../../../lib/php/pagepart/header.php");
+        ?>
 
 
-
-                        </div>
-            </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
-                <div id="header" class="container-fluid">
-                <nav class="navbar navbar-default" role="navigation">
-                    <div class="container-fluid">
-                <div id="hlogo" class="navbar-header" >
-                    <a class="navbar-brand" href="/">
-                        Open Question
-                    </a>
-                </div>
-                <div id="hmenu" class="collapse navbar-collapse" >
-                    <div >
-                        <ul class="nav navbar-nav">
-                            <li> <a>Question</a></li>
-                            <li><a>Tags</a></li>
-                            <li><a>Users</a></li>
-                            <li><a>Ask Question</a></li>
-                        </ul>
-                    </div>
-                </div>
-                        </div>
-                </nav>
-            </div>
                 <div class="content">
                     <div id="question-header">
                         <h1 itemprop="name">
@@ -123,22 +67,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="" class="answer" data-answerid="" >
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td class="votecell">
 
-                                            </td>
-                                            <td class="answercell">
-                                                <div class="post-text" itemprop="text">
-
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <?
+//                                                         处理答案的php代码，从数据库中读出答案，写到此文件中去
+                            require("../addAnswers.php");
+                            if (isset($_GET["dataid"])) {
+                                handleAnswers($_GET["dataid"]);
+                            }
+                            ?>
                         </div>
                     </div>
                     <div id="sidebar">

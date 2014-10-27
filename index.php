@@ -1,103 +1,109 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Aliens Abducted Me - Report an Abduction</title>
-	<style>
-		.error={color:#FF00000;}
-	</style>
-</head>
-<body>
-<? 
-	// define the variable and set to empty values
-	$nameErr=$mailErr=$websitErr="";
-	$name=$mail=$websit=$commit=$gender="";
-	if ($_SERVER["REQUEST_METHOD"]=="POST") {
-		echo 'jump into';
-		if (empty($_POST['name'])) {
-			$nameErr="name is required";
-		} else {
-			echo 'into name';
-			$name=test_input($_POST['name']);
-			//check if name only contain the letters 
-			if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-				echo 'into nameErr';
-				$nameErr="only letters and white space allowed";
-			}
-		}
-		if (empty($_POST['mail'])) {
-			$mailErr="E-mail is required";
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<title>exhelper</title>
+        <script src="external/js/jquery-1.11.1.min.js"></script>
+        <script src="external/bootstrap/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="external/bootstrap/css/bootstrap.min.css">
 
-		} else {
-			$mail=test_input($_POST['mail']);
-			//check the mail address 
-			if (!filter_var($mail,FILTER_VALIDATE_EMAIL)) {
-				$mailErr="Invalid email format";
-			}
-		}
-		if (empty($_POST['webist'])) {
-			$webist="";
-		} else {
-			$webist=test_input($_POST['websit']);
-			//check if websit address is valid
-			$regx="/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i";
-			if (!preg_match($regx,$webist)) {
-				$websitErr="Invalid URL";
-			}
-		}
-		if (empty($_POST['commit'])) {
-			$commit="";
-			
-		} else {
-			$commit=test_input($_POST['commit']);
-		}
-		if (empty($_POST['gender'])) {
-			$gender="";
-		} else {
-			$gender=test_input($_POST['gender']);
-		}
-	}
-	function test_input($data) {
-		$data=trim($data);
-		$data=stripslashes($data);
-		$data=htmlspecialchars($data);
-		return $data;	
-	}
-?>
-	<h1> PHP Form Validation Example </h1>
-	<p> required field </p>
-	<form method='post' action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-	Name:<input type='text' name='name'/><span class='error'>*<? echo $nameErr;?></span>
-	<br><br>
-	E-mail:<input type='text' name='mail'/><span class='error'>*<? echo $mailErr;?></span>
-	<br><br>
-	websit:<input type='text' name='websit'/><span class='error'>*<? echo $websitErr;?></span>
-	<br><br>
-	commit:<textarea type='text' rows='5' cols='30' name='commit'></textarea>
-	<br><br>
-	Gender:<input type='radio' name='gender' value='Female'/>
-	<input type='radio' name='gender' value='Male'/><span class='error'>*<?echo $genderErr;?></span>
-	<br><br>
-	<input type='submit' name='submit'/>
-	
-	</form>
-	<form action='courselist.php' method='post'>
-		<input type='submit' name='submit'/>
-	</form>
-	
-	<h2> Your Input: </h2>
-<?
-	echo $name;
-	echo "<br>";
-	echo $mail;
-	echo "<br>";
-	echo $webist;
-	echo "<br>";
-	echo $commit;
-	echo "<br>";
-	echo $gender;
 
-	echo 'ddddd';
+        <script type="text/javascript" src="html/user/indexconfig.js"></script>
+        <script type="text/javascript" src="js/header.js"></script>
+        <script type="text/javascript"src="js/ButtonListener.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/origin.css">
+        <link rel="stylesheet" type="text/css" href="css/qlistitem.css">
 
-?>
+
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.addEventListener('load',addCheckListener,false);
+		</script>
+        <?
+            require("lib/php/pagepart/topbar.php");
+        ?>
+		<div class="mainwraper">
+
+		<div class="container">
+              <?
+                        require("lib/php/pagepart/header.php");
+               ?>
+            <div class="jumbotron">
+                <h1>Open Question</h1>
+                <p>
+                    ask freely,and think freely
+                </p>
+            </div>
+
+            <div id="content" class="container">
+                <div id="mainbar" class="container">
+                    <div id="subheader" class="container">
+                        <h1 id="h-top-question"> Top Questions</h1>
+                        <div id="tabs" class="container">
+                            <ul class="pagination">
+                            <li><a>interesting</a></li>
+                            <li><a>hot</a></li>
+                            <li><a>week</a></li>
+                            <li><a>month</a></li>
+                                </ul>
+                        </div>
+                    </div>
+                    <div id="qlist-wrapper">
+                        <div id="question-mini-list">
+                            <!--a question layout-->
+                            <div id="question-summary-00000001">
+
+                                <div  class="flag">
+                                    <ul class="list-group" >
+                                        <li class="list-group-item" class="votes"><span class="badge">0</span>votes </li>
+                                        <li class="list-group-item" class="answers"><span class="badge">0</span> answers</li>
+
+                                        </ul>
+                                    </div>
+                                <div class="panel panel-default" class="qcontent">
+                                <div class="summary" class="panel-heading">
+                                    <a class="panel-title">how cant java call the python function</a>
+                                </div>
+                                <div class="panel-body"class="bottomline">
+                                    <div class="tags">
+                                       <a class="label label-primary">python</a>
+                                         <a class="label label-primary">java</a>
+                                    </div>
+                                <div class="started">
+                                    <a>asked 0s ago</a>
+                                    <a>ztelur</a>
+                                    <span>1</span>
+                                </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--slid bar-->
+                <div id="sidebar">
+                    <div>
+                        <h4><a>Hot Questions</a></h4>
+                        <ul>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+		</div>
+		</div>
+		<div id="footer"></div>
+        </div>
+            </div>
+	</body>
+</html>
