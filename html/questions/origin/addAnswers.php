@@ -21,11 +21,17 @@ function handleAnswers($id) {
     $sql=sprintf("SELECT aid,qid,author,aname,upvote,adopted,content FROM answer WHERE qid=%s",mysql_escape_string($id));
     $result=execsql($sql);
     if ($result!==null) {
-        writeAnswers($result);
+        if (mysql_num_rows($result)==0) {
+//            标示没有答案
+        }else {
+            writeAnswers($result);
+        }
     }
 }
 function writeAnswers($result) {
-    foreach ( as $answer) {  //遍历每个answer
+//    $row=mysql_fetch_array($result);
+    while ($row=mysql_fetch_array($result,MYSQL_ASSOC)) {  //遍历每个answer
+        
         $html=file_get_html("answer.html");
         // 修改内容
         $html->find('');

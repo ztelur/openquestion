@@ -23,11 +23,19 @@
             <?php
                 require("../../../lib/php/pagepart/topbar.php");
                 require("../../../lib/php/pagepart/header.php");
+//                检查是否登陆，否则调到登陆界面
+//                if (!isset($_SESSION['authenticated'])) {
+////                    alert("you must log in");
+//                    header("location:../../user/login.php");
+//                }
             ?>
 
             <div id="maincontent">
             <div id="mainbar" class="container">
                 <form id="post-form" action="submit.php" method="post" role="form" >
+
+                    <input type="hidden"  type="text" name="uid" value=<? echo $_SESSION['user_id'];?>   id="uid">
+
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" id="title" class="form-control" name="title"

@@ -7,8 +7,8 @@
         <link rel="stylesheet" href="external/bootstrap/css/bootstrap.min.css">
 
 
-        <script type="text/javascript" src="html/user/indexconfig.js"></script>
-        <script type="text/javascript" src="js/header.js"></script>
+
+
         <script type="text/javascript"src="js/ButtonListener.js"></script>
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/origin.css">
@@ -19,9 +19,9 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
 	</head>
 	<body>
-		<script type="text/javascript">
-			window.addEventListener('load',addCheckListener,false);
-		</script>
+<!--		<script type="text/javascript">-->
+<!--			window.addEventListener('load',addCheckListener,false);-->
+<!--		</script>-->
         <?
             require("lib/php/pagepart/topbar.php");
         ?>
@@ -31,6 +31,7 @@
               <?
                         require("lib/php/pagepart/header.php");
                ?>
+
             <div class="jumbotron">
                 <h1>Open Question</h1>
                 <p>

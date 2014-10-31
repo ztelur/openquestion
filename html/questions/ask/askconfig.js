@@ -78,14 +78,16 @@ $(document).ready(function () {
         $("#tag-suggestions").empty();
         $("#tag-suggestions").hide();
     });
+    $("#login-link").attr({"href":"../../../html/user/login.php"})
     $("#post-form").submit(function () {
         var utitle=$("#title").val();
         var utag=$("#tagname").val();
         var utext=$("#editor").html();
-        var data={title:utitle,content:utext,tagname:utag};
+        var uid=$("#uid").val()
+        var data={title:utitle,content:utext,tagname:utag,id:uid};
         $.post("submit.php",data, function (cdata, cstatus) {
-            //window.location.href=cdata;
-            alert(cdata);
+            window.location.href=cdata;
+            //alert(cdata);
         });
     return false;
 

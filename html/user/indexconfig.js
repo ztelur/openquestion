@@ -10,9 +10,9 @@ function addCheckListener () {
 	username.addEventListener('blur',checkUsername,false);
 	var username_r=document.getElementById('username_r');
 	username_r.addEventListener('blur',checkRegisterName,false);
-	var mail=document.getElementById('email_r');
+	var mail=document.getElementById('email');
 	mail.addEventListener('blur',checkEmail);
-	var pass2=document.getElementById('password_r2');
+	var pass2=document.getElementById('password2');
 	pass2.addEventListener('blur',checkPasswordSame,false);
 	var button=document.getElementById("submitbutton");
 	button.addEventListener('click',checkaccount,false);

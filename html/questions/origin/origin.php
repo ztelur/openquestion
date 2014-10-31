@@ -10,19 +10,20 @@
 	<link href="../../external/font-awesome/css/font-awesome.css" rel="stylesheet">
 	<script type="text/javascript" src="../../external/js/jquery.hotkeys.js"></script>
 	<script type="text/javascript" src="../../js/bootstrap-wysiwyg.js"></script>
-    <script type="text/javascript" src="/external/google-code-prettify/prettify.js"></script>
+    <script type="text/javascript" src="../../external/google-code-prettify/prettify.js"></script>
 
     <link rel="stylesheet" href="origin/origin.css">
+
     <script type="text/javascript" src="origin/origin.js"></script>
     <title></title>
 </head>
     <div>
         <?php
-                require("../../../lib/php/pagepart/topbar.php");
-                require("../../../lib/php/pagepart/header.php");
+                require("../../lib/php/pagepart/topbar.php");
+                require("../../lib/php/pagepart/header.php");
+                require("origin/addExtraInformation.php");
+
         ?>
-
-
                 <div class="content">
                     <div id="question-header">
                         <h1 itemprop="name">
@@ -69,12 +70,50 @@
                             </div>
 
                             <?
-//                                                         处理答案的php代码，从数据库中读出答案，写到此文件中去
+//                          处理答案的php代码，从数据库中读出答案，写到此文件中去
                             require("../addAnswers.php");
                             if (isset($_GET["dataid"])) {
                                 handleAnswers($_GET["dataid"]);
                             }
                             ?>
+                            <?php
+                            if ($GLOBALS["isanswered"]==1) {
+                                ?>
+                                <form id="post-form" action="origin/answersubmit.php" method="post" class="post-form">
+                                    <input type="hidden" id="post-id" value="<?
+                                    echo $_SESSION["user_id"];
+
+                                    ?>">
+                                    <input type="hidden" id="post-name" value="<?
+                                    echo $_SESSION["user_name"];
+                                    ?>">
+                                    <input type="hidden" id="question-id" value="<?
+                                    echo htmlspecialchars($GLOBALS['qid']);
+                                    ?>">
+
+                                    <h2>Your Answer</h2>
+
+                                    <div id="post-editor">
+                                        <?
+                                        require_once("../../lib/php/pagepart/editor.php");
+                                        ?>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="button" value="Post Your Answer" tabindex=""
+                                               class="postanswerbutton">
+                                    </div>
+                                </form>
+                            <?php
+                            } else if ($isanswered==2){
+                                ?>
+                                    <h4>You have answered this answer</h4>
+                                <?php
+                                    }else if ($isanswered==3) {
+                                echo "<h4>this is your question</h4>";
+                            }
+                                ?>
+
+
                         </div>
                     </div>
                     <div id="sidebar">

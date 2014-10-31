@@ -23,6 +23,9 @@ if (isset($_POST["username"])&&isset($_POST["password"])) {
     if ($result === FALSE)
         die("could not query database");
     if (mysql_num_rows($result) == 1) {
+        $row=mysql_fetch_array($result,MYSQL_ASSOC);
+        $_SESSION['user_id']=$row["uid"];
+        $_SESSION['user_name']=$row["username"];
         $_SESSION["authenticated"] = TRUE;
     } else {
         $_SESSION["authenticated"] = FALSE;
@@ -58,7 +61,7 @@ if (isset($_POST["username"])&&isset($_POST["password"])) {
                                     } else {
                                         ?>
                                 <li><a id="register-link" class="register-link" href="">sign up</a></li>
-                                <li><a id="login-link" class="login-link" href="">log in</a></li>
+                                <li><a id="login-link" class="login-link">log in</a></li>
                                 <li><a id="tour" class="tour" href="">tour</a><li>
                                     <?php
                                     }
