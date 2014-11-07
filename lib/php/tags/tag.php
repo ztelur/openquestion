@@ -24,4 +24,5 @@ if (isset($_GET["tag"])) {
 } else {
     return;
 }
+
 ?>

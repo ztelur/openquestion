@@ -65,7 +65,14 @@ $(document).ready(function () {
 
                     for (tag; tag < tags.length; tag++) {
                         //alert(tag);
-                        $("#tag-suggestions").append("<div> <span class='label label-primary'>" + tags[tag] + "</span></div>");
+                        $("#tag-suggestions").append(
+                        "<div><button class='btn btn-primary'>" + tags[tag] + "</button></div>"
+                        );
+                        //$(".btn btn-primary").click(function () {
+                        //    $text=$("#tagname").val();
+                        //    $finaltext=$text+","+this.val();
+                        //    $("#tagname").val($finaltext);
+                        //})
                     }
                     $("#tag-suggestions").show();
                 }
@@ -84,6 +91,7 @@ $(document).ready(function () {
         var utag=$("#tagname").val();
         var utext=$("#editor").html();
         var uid=$("#uid").val()
+        alert(utitle);
         var data={title:utitle,content:utext,tagname:utag,id:uid};
         $.post("submit.php",data, function (cdata, cstatus) {
             window.location.href=cdata;

@@ -31,7 +31,7 @@
                         </h1>
                     </div>
                     <div id="mainbar">
-                        <div class="question" data-questionid="" id="question">
+                        <div class="question" data-questionid="" id="question" qid="<?echo $GLOBALS["qid"] ?>">
 
                             <table>
                                 <tbody>
@@ -40,7 +40,11 @@
 
                                                         <a class="vote-up-off" title="this question is useful and clear"><i class="icon-thumbs-up-alt"></i></a>
 
-                                                    <span itemprop="upvotecount" class="vote-count-post">0</span>
+                                                    <span itemprop="upvotecount" class="vote-count-post">
+                                                        <?
+                                                            echo $GLOBALS["upvote"];
+                                                        ?>
+                                                    </span>
 
                                                         <a class="vote-down-off"  title="it's unclear and not useful">
                                                             <i class="icon-thumbs-down-alt"></i>
@@ -64,18 +68,17 @@
                                 <div class="subheader answers-subheader">
                                     <h2></h2>
                                     <div>
-                                        <div id="tabs"></div>
+
                                     </div>
                                 </div>
                             </div>
+                            <?php
 
-                            <?
-//                          处理答案的php代码，从数据库中读出答案，写到此文件中去
-                            require("../addAnswers.php");
-                            if (isset($_GET["dataid"])) {
-                                handleAnswers($_GET["dataid"]);
-                            }
-                            ?>
+                                            require("origin/addAnswers.php");
+                                            if (isset($_GET["qid"])) {
+                                            handleAnswers($_GET["qid"]);
+                                            }
+                                     ?>
                             <?php
                             if ($GLOBALS["isanswered"]==1) {
                                 ?>
@@ -131,12 +134,15 @@
                                     <tr>
                                         <td><p class="label-key">asked</p></td>
                                         <td><p class="label-key" title="2014-05-23 19:05:172">
-                                            <b> 4 month ago</b>
+                                                <b><?php
+                                                        echo $GLOBALS["time"];
+                                                    ?>
+                                                </b>
                                         </p></td>
                                     </tr>
                                     <tr>
                                         <td><p class="label-key">viewed</p></td>
-                                        <td><p class="label-key"><b>320 times</b></p></td>
+                                        <td><p class="label-key"><b><?php echo $GLOBALS["looknum"] ?> times</b></p></td>
                                     </tr>
                                     <tr>
                                         <td><p class="label-key">active</p></td>

@@ -14,29 +14,32 @@
  *                  3.3 data-answerid:主键值，post-text：内容等一些东西，
  *          3.3 写入origin.php中。
  * */
-require("../../../lib/php/sqllib.php");
-require("../../../external/simplehtmldom");
-
+require_once("../../lib/php/sqllib.php");
+require("../../external/simplehtmldom/simple_html_dom.php");
 function handleAnswers($id) {
-    $sql=sprintf("SELECT aid,qid,author,aname,upvote,adopted,content FROM answer WHERE qid=%s",mysql_escape_string($id));
+    $sql=sprintf("SELECT aid,qid,author,aname,time,upvote,adopted,content FROM answer WHERE qid=%s",mysql_escape_string($id));
     $result=execsql($sql);
     if ($result!==null) {
         if (mysql_num_rows($result)==0) {
-//            标示没有答案
+
         }else {
+
             writeAnswers($result);
         }
     }
 }
 function writeAnswers($result) {
 //    $row=mysql_fetch_array($result);
-    while ($row=mysql_fetch_array($result,MYSQL_ASSOC)) {  //遍历每个answer
+    while ($row=mysql_fetch_array($result,MYSQL_ASSOC)) {
         
-        $html=file_get_html("answer.html");
+        $html=file_get_html("origin/answer.html");
         // 修改内容
-        $html->find('');
+        $html->find('.answer',0)->id=$row["aid"];
+        $html->find('[class=post-text]',0)->innertext=$row["content"];
+        $html->find('[class=avote-count-post]',0)->innertext=$row["upvote"];
+        $html->find('[class=username]',0)->innertext=$row["aname"];
         //写入origin.php
-
+        echo $html;
     }
 
 }

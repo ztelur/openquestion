@@ -13,6 +13,9 @@ if (isset($_POST["qid"])&&isset($_POST["uid"])&&isset($_POST["content"])&&isset(
                                                 mysql_escape_string($_POST["uname"]),
                                                 mysql_escape_string($_POST["content"]));
     $result=execsql($sql);
+    // 更新question的answernum
+    $sql=sprintf("UPDATE question SET answernum=answernum+1 WHERE qid=%s",$_POST['qid']);
+    $result=execsql($sql);
     echo $result;
 }
 ?>

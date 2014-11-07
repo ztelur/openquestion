@@ -2,10 +2,24 @@
 .flag{
     float: left;
     display: inline-block;
-    width: 10%;
+    width: 20%;
     height: 100%;
+    margin-left: 10px;
 }
-
+.flag .votes{
+    float: left;
+    margin: 0 7px 0 0;
+    padding: 5px 0 5px 4px;
+    width: 40px;
+    height: 38px;
+}
+.flag .answers{
+    float: left;
+    margin: 0 7px 0 0;
+    padding: 5px 0 5px 4px;
+    width: 40px;
+    height: 38px;
+}
 
 .qcontent {
     height: 100%;
@@ -21,3 +35,26 @@
 .started{
 
 }
+.question {
+    border-bottom: 1px solid #eaeaea;
+    overflow: hidden;
+    padding: 11px,0;
+    width: 730px;
+    float: left;
+}
+.qcontent{
+    width: 550px;
+}
+.qcontent h3{
+    font-size: 120%;
+    font-weight: bold;
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+.tags{
+    line-height: 18px;
+    float: left;
+}
+
+

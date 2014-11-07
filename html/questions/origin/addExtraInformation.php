@@ -14,6 +14,7 @@ if (isset($_GET["qid"])) {
     global $looknum;
     global $qid;
     global $isanswered;
+    global $time;
     $isanswered=1;
     // get information from the database
     $sql=sprintf("SELECT * FROM question WHERE qid=%s",mysql_escape_string($_GET['qid']));
@@ -26,17 +27,22 @@ if (isset($_GET["qid"])) {
         $answernum=$row["answernum"];
         $looknum=$row["looknum"];
         $qid=$_GET["qid"];
+        $time=$row["time"];
     }
 //    看这个人有没有回答过这个问题
-    $sql=sprintf("SELECT * FROM answer WHERE qid=%s AND author=%s",mysql_escape_string($_GET["qid"]),
-                                                $uid);
-    $result=execsql($sql);
+    if (isset($_SESSION["user_id"])) {
+        $sql = sprintf("SELECT * FROM answer WHERE qid=%s AND author=%s", mysql_escape_string($_GET["qid"]),
+            $_SESSION["user_id"]);
+        $result = execsql($sql);
 //    echo mysql_num_rows($result);
-    if (mysql_num_rows($result)>=1) {
-        $isanswered=2;
-    }
-    if ($_SESSION["user_id"]==$uid) {
-        $isanswered=3;
+        if (mysql_num_rows($result) >= 1) {
+            $isanswered = 2;
+        }
+        if ($_SESSION["user_id"] == $uid) {
+            $isanswered = 3;
+        }
+    }else {
+        $isanswered=1;
     }
 }
 

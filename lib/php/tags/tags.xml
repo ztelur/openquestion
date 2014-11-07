@@ -1,9 +1,25 @@
 <xml>
     <tags>
         <tag name="java"></tag>
-        <tag name="c"></tag>
+        <tag name="javascript"></tag>
+        <tag name="c#"></tag>
         <tag name="c++"></tag>
+        <tag name="c"></tag>
+        <tag name="php" ></tag>
+        <tag name="android"></tag>
+        <tag name="jquery"></tag>
         <tag name="python"></tag>
+        <tag name="html"></tag>
+        <tag name="ios"></tag>
+        <tag name="mysql"></tag>
+        <tag name="css"></tag>
+        <tag name=".net"></tag>
+        <tag name="linux"></tag>
+        <tag name="windows"></tag>
+        <tag name="git"></tag>
+        <tag name="ruby"></tag>
+        <tag name="xml"></tag>
+
 
     </tags>
 </xml>

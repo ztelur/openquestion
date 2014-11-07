@@ -38,3 +38,11 @@
     width: 980px;
     min-height: 450px;
 }
+#tag-suggestions{
+
+    background-color:#fff ;
+    border: 1px solid #777;
+    padding: 7px;
+    z-index: 300;
+
+}

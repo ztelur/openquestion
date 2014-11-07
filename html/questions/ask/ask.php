@@ -23,11 +23,14 @@
             <?php
                 require("../../../lib/php/pagepart/topbar.php");
                 require("../../../lib/php/pagepart/header.php");
-//                检查是否登陆，否则调到登陆界面
-//                if (!isset($_SESSION['authenticated'])) {
-////                    alert("you must log in");
-//                    header("location:../../user/login.php");
-//                }
+               /* 检查是否登陆，否则调到登陆界*/
+                if (!isset($_SESSION['authenticated'])) {
+                    $url="../../user/login.php";
+                    echo "<script language='javascript' type='text/javascript'>";
+                    echo "alert('please log in firstly');";
+                    echo "window.location.href='$url';";
+                    echo "</script>";
+                }
             ?>
 
             <div id="maincontent">
@@ -48,10 +51,12 @@
                     </div>
                     <div class="">
                         <label for="tagname">tag</label>
-                        <input id="tagname" type="text" name="tagname" tabindex="212">
+                        <input id="tagname" type="text" name="tagname" tabindex="212" style="width: 633px">
+
+                    <div id="tag-suggestions" style="display:none;
+                                                                            width: 633px;"></div>
                     </div>
-                    <div id="tag-suggestions"></div>
-                    <div id="question-only-section">
+                        <div id="question-only-section">
                         <div class="form-group" class="form-submit-cbt">
                             <input id="submit-button" type="submit" value="Post Your Question" tabindex="1" class="form-control"
                                                                    tabindex="213"     >

@@ -50,13 +50,46 @@ $(document).ready(function () {
     *  3.2 如果返回false，界面显示已经点赞啦
     *
     * */
-    $(".vote-up-off").click(function () {
+
+     $(".vote-up-off").click(function () {
         var count=$(".vote-count-post").text();
-        $(".vote-count-post").text((parseInt(count)+1).toString());
+        var uid=$("#user").attr('uid');
+        var qid=$("#question").attr("qid");
+         data={
+             uid:uid,
+             qid:qid,
+             up:true
+         };
+         $.post("../../lib/php/upvote/upvote.php",data, function (cdata, cstatus) {
+            alert(cdata)
+             if (cdata=="true") {
+                $(".vote-count-post").text((parseInt(count)+1).toString());
+             } else {
+                 alert("you have upvoted!");
+             }
+
+         });
+
     });
-    $(".vote-down-off").click(function () {
+     $(".vote-down-off").click(function () {
         var count=$(".vote-count-post").text();
-        $(".vote-count-post").text((parseInt(count)-1).toString());
+        var uid=$("#user").attr('uid');
+        var qid=$("#question").attr("qid");
+         data={
+             uid:uid,
+             qid:qid,
+             up:false
+         };
+         $.post("../../lib/php/upvote/upvote.php",data, function (cdata, cstatus) {
+            alert(cdata)
+             if (cdata=="true") {
+                $(".vote-count-post").text((parseInt(count)-1).toString());
+             } else {
+                 alert("you have upvoted!");
+             }
+
+         });
+
     });
 });
 
@@ -66,11 +99,10 @@ $(document).ready(function () {
         $qid=$("#question-id").attr("value");
         $uname=$("#post-name").attr("value");
         $content=$("#editor").html();
-        //alert($uid);
-        //alert($qid);
         $data={"qid":$qid,"uid":$uid,"content":$content,"uname":$uname};
         $.post("origin/answersubmit.php",$data, function (data,status) {
-            alert(data);
+            location.reload(true);
+            //alert(data);
         });
     });
 });

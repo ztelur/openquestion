@@ -51,7 +51,7 @@ if (isset($_POST["username"])&&isset($_POST["password"])) {
                             <ul class="nav navbar-nav navbar-right">
                                <? if (isset($_SESSION['authenticated'])&&($_SESSION['authenticated']==true)) {
                                ?>
-                                    <li><a id="user" href="/user/333/ztelur" class="profile-me">
+                                    <li><a id="user" href="../../html/user/user.php" class="profile-me" uid="<? echo $_SESSION['user_id']?>">
                                             <div title="ztelur">
                                                 <img src="">
                                             </div>

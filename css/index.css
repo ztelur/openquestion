@@ -4,6 +4,8 @@
 
 #mainbar{
     float: left;
+    margin-bottom: 40px;
+    width: 735px;
 }
 #sidebar{
     float: right;

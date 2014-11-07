@@ -13,3 +13,14 @@ a {
     cursor: pointer;
     text-decoration: none;
 }
+h1 {
+    font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+    font-weight: bold;
+    font-size: 170%;
+    margin-bottom: 7px;
+    line-height: 1.3;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}

@@ -6,6 +6,7 @@ function execsql($sql)
 
 	if (mysql_select_db("test",$connection)===FALSE)
 		die("Could select the database");
+    mysql_query("set names 'utf-8'");
 	$result=mysql_query($sql);
 
 
