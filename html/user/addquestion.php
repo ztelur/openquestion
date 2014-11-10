@@ -24,11 +24,8 @@ $sql=sprintf("SELECT qid,title,upvote,tags FROM question WHERE uid=%s",mysql_esc
 
             foreach ($taglists as $elem ) {
                 $key=(string)$elem;
-                if (array_key_exists($key,$tags)) {
-                    $temp=$tags[$key];
-                    $tags[$key]=$temp+1;
-                } else {
-                    $tags[$key]=1;
+                if (!in_array($key,$tags)) {
+                    array_push($tags,$key);
                 }
             }
              $add=sprintf("<tr>

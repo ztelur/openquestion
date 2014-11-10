@@ -12,8 +12,8 @@
 	<script type="text/javascript" src="../../js/bootstrap-wysiwyg.js"></script>
     <script type="text/javascript" src="../../external/google-code-prettify/prettify.js"></script>
 
-    <link rel="stylesheet" href="origin/origin.css">
-
+    <link rel="stylesheet" href="origin/question.css">
+    <link rel="stylesheet" href="../../css/origin.css">
     <script type="text/javascript" src="origin/origin.js"></script>
     <title></title>
 </head>
@@ -36,7 +36,7 @@
                             <table>
                                 <tbody>
                                     <tr >
-                                        <td class="votecell">
+                                        <td class="votecell" id="">
 
                                                         <a class="vote-up-off" title="this question is useful and clear"><i class="icon-thumbs-up-alt"></i></a>
 
@@ -54,7 +54,37 @@
                                         <td class="postcell">
                                             <div>
                                                 <div class="post-text" itemprop="text"></div>
-                                                <div class="post-taglist"></div>
+                                                <div class="post-taglist">
+
+                                                </div>
+                                                <table class="fw">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="vt">
+                                                                <div class="post-menu"><span class="score">
+
+                                                                </span>score</div>
+                                                            </td>
+                                                            <td class="post-signature owner">
+                                                                <div class="user-info">
+                                                                    <div class="user-action-time">asked <span title="" class="relativetime">234</span></div>
+                                                                    <div class="user-gravatar32">
+                                                                        <img src="">
+                                                                    </div>
+                                                                    <div class="user-detail">
+                                                                        <a href="" class='username'></a>
+                                                                        <br>
+                                                                        <span class="reputation-score" title="reputation score">
+                                                                            <?php
+                                                                                echo $GLOBALS["userscore"];
+                                                                            ?>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </td>
                                     </tr>
@@ -76,7 +106,7 @@
 
                                             require("origin/addAnswers.php");
                                             if (isset($_GET["qid"])) {
-                                            handleAnswers($_GET["qid"]);
+                                            handleAnswers($_GET["qid"],$GLOBALS["active"]);
                                             }
                                      ?>
                             <?php
@@ -141,8 +171,8 @@
                                         </p></td>
                                     </tr>
                                     <tr>
-                                        <td><p class="label-key">viewed</p></td>
-                                        <td><p class="label-key"><b><?php echo $GLOBALS["looknum"] ?> times</b></p></td>
+                                        <td><p class="label-key">answered</p></td>
+                                        <td><p class="label-key"><b><?php echo $GLOBALS["answernum"] ?> times</b></p></td>
                                     </tr>
                                     <tr>
                                         <td><p class="label-key">active</p></td>

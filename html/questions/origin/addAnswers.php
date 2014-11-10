@@ -16,28 +16,45 @@
  * */
 require_once("../../lib/php/sqllib.php");
 require("../../external/simplehtmldom/simple_html_dom.php");
-function handleAnswers($id) {
+global $isquestioner;
+function handleAnswers($id,$active) {
     $sql=sprintf("SELECT aid,qid,author,aname,time,upvote,adopted,content FROM answer WHERE qid=%s",mysql_escape_string($id));
     $result=execsql($sql);
     if ($result!==null) {
         if (mysql_num_rows($result)==0) {
 
         }else {
-
-            writeAnswers($result);
+            writeAnswers($result,$active);
         }
     }
 }
-function writeAnswers($result) {
+function writeAnswers($result,$active) {
+    $isquestioner=false;
+
+    if (isset($_SESSION["user_id"])) {
+        if ($GLOBALS["uid"] == $_SESSION["user_id"]) {
+            $isquestioner = true;
+        }
+    }
 //    $row=mysql_fetch_array($result);
     while ($row=mysql_fetch_array($result,MYSQL_ASSOC)) {
-        
-        $html=file_get_html("origin/answer.html");
+                    //判断当前浏览用户是否为提问题的用户,而且要首先判断此时用户是否登陆啦
+        $adopt=$row["adopted"];
+        if (($isquestioner&&$active)||$adopt=='yes') {  //如果登陆的是提问的人,并且问题还没有设定最佳答案||此答案已经被采纳
+            $html = file_get_html("origin/answer2.html");
+        }else {
+            $html=file_get_html("origin/answer.html");
+        }
         // 修改内容
-        $html->find('.answer',0)->id=$row["aid"];
+        $aid=$row["aid"];
+
+        $html->find('.votecell',0)->id=$aid;
+        $html->find("[class=aid]",0)->value=$aid;
+
         $html->find('[class=post-text]',0)->innertext=$row["content"];
         $html->find('[class=avote-count-post]',0)->innertext=$row["upvote"];
         $html->find('[class=username]',0)->innertext=$row["aname"];
+        $html->find("[class=relativetime]",0)->innertext=$row["time"];
         //写入origin.php
         echo $html;
     }

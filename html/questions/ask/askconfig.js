@@ -40,6 +40,7 @@
     window.prettyPrint && prettyPrint();
   });
 $(document).ready(function () {
+    //标题的字数
     $("#title").blur(function () {
         var text=$("#title").val();
         if(text!="") {
@@ -53,6 +54,7 @@ $(document).ready(function () {
             }
         }
     })
+    //显示提示的tag
     $("#tagname").keyup(function () {
         var text=$("#tagname").val();
         if(text!="") {
@@ -85,21 +87,44 @@ $(document).ready(function () {
         $("#tag-suggestions").empty();
         $("#tag-suggestions").hide();
     });
-    $("#login-link").attr({"href":"../../../html/user/login.php"})
+    //提交问题
     $("#post-form").submit(function () {
         var utitle=$("#title").val();
         var utag=$("#tagname").val();
         var utext=$("#editor").html();
-        var uid=$("#uid").val()
-        alert(utitle);
-        var data={title:utitle,content:utext,tagname:utag,id:uid};
-        $.post("submit.php",data, function (cdata, cstatus) {
-            window.location.href=cdata;
-            //alert(cdata);
-        });
+        var uid=$("#uid").val();
+        var score=$("#score").val();
+        var username=$("#username").val();
+        if (utitle&&utag&&utext&&score&&uid&&username) {
+            var data = {title: utitle, content: utext, tagname: utag, id: uid, score: score,username:username};
+            $.post("submit.php", data, function (cdata, cstatus) {
+                window.location.href = cdata;
+                alert(cdata);
+            });
+        }else {
+            alert("please complete the question");
+        }
     return false;
 
     });
+   //添加悬赏分数
+    $("#score").blur(function () {
+        var score=$("#score").val();
+        var uid=$("#uid").val();
+        if (score!='') {
+            var url="scorequery.php?score="+score+"&uid="+uid;
+            $.get(url, function (cdata,status) {
+                if (cdata) {
 
+                } else {
+                    alert("you have no so much score to provide for the question");
+                    $("#score").val("");
+                    $("#score").focus();
+                }
+            });
+        }
+    });
+   // 添加连接
+    $("#login-link").attr({"href":"../../../html/user/login.php"});
 });
 

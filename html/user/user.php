@@ -102,10 +102,9 @@
 <!--                            if have tags-->
                             <table class="user-tags">
                                 <tbody>
-                                    <tr>
-                                        <td><a href="" class="post-tag">php</a></td>
-                                        <td><a class="post-tag">python</a></td>
-                                    </tr>
+                                <?php
+                                    require_once("addtags.php");
+                                ?>
                                 </tbody>
                             </table>
                         </div>

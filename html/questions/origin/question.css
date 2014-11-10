@@ -1,0 +1,235 @@
+.content{
+    margin: 0 auto;
+    width: 980px;
+    min-height: 450px;
+
+}
+#mainbar{
+    float: left;
+    margin-bottom: 40px;
+    width: 735px;
+}
+#sidebar{
+    overflow: hidden;
+    float: right;
+    margin-bottom: 60px;
+    width: 220px;
+}
+#question-header{
+    width: 980px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #555;
+    clear: both;
+}
+.question{
+    clear: both;
+    width: 100% ;
+}
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.votecell{
+    width: 60px;
+    vertical-align: top;
+}
+.vote-up-off{
+    text-align: center;
+    display: block;
+    cursor: pointer
+    background-position: 0 -265px;
+    display: block;
+    margin: 0 auto;
+    width: 41px;
+    height: 25px;
+}
+.vote-down-off{
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    background-position: 0 -265px;
+display: block;
+margin: 0 auto;
+width: 41px;
+height: 25px;
+}
+a{
+    text-decoration: none;
+}
+#answer-header{
+    width: 728px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.answer{
+    border-bottom: 1px solid #aaa;
+    width: 728px;
+    padding-top: 20px;
+}
+.post-text{
+    word-wrap: break-word;
+    width: 660px;
+    font-size: 107%;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    line-height: 130%;
+}
+
+#editor{
+  background-color: white;
+    border: 1px solid rgb(204, 204, 204);
+    border-collapse: separate;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.075) inset;
+    box-sizing: content-box;
+    height: 250px;
+    max-height: 250px;
+    outline: medium none;
+    overflow: scroll;
+    padding: 4px
+}
+.post-tag{
+    color: #3e6d8e;
+background-color: #e0eaf1;
+border-bottom: 1px solid #b3cee1;
+border-right: 1px solid #b3cee1;
+padding: 3px 4px 3px 4px;
+margin: 2px 2px 2px;
+text-decoration: none;
+font-size: 90%;
+line-height: 1.4;
+white-space: nowrap;
+display: inline-block;
+}
+a{
+    cursor: pointer;
+}
+.post-taglist{
+    margin-bottom: 10px;
+    clear: both;
+}
+a.post-tag:hover, .post-text a.post-tag:hover, .wmd-preview a.post-tag:hover {
+background-color: #c4dae9;
+border-bottom: 1px solid #c4dae9;
+border-right: 1px solid #c4dae9;
+text-decoration: none;
+}
+.user-info{
+    height: 35px;
+    width: 185px;
+}
+.fw{
+    width: 100%;
+}
+.vt{
+    vertical-align: top;
+}
+.owner{
+   background-color: #e0eaf1;
+}
+.post-signature {
+padding-left: 5px;
+padding-top: 2px;
+text-align: left;
+vertical-align: top;
+width: 175px;
+height: 58px;
+}
+.user-info {
+height: 35px;
+width: 185px;
+}
+.user-action-time {
+margin-top: 2px;
+margin-bottom: 4px;
+}
+.relativetime {
+font-weight: normal;
+text-decoration: none;
+}
+.user-info .user-gravatar32 {
+float: left;
+width: 32px;
+height: 32px;
+}
+.user-details {
+float: left;
+margin-left: 5px;
+width: 145px;
+overflow: hidden;
+white-space: nowrap;
+}
+.user-detail {
+color: #888;
+line-height: 17px;
+}
+a {
+color: #07c;
+text-decoration: none;
+cursor: pointer;
+}
+.reputation-score {
+font-weight: bold;
+color: #444;
+font-size: 100%;
+margin-right: 2px;
+}
+.vote{
+    text-align: top;
+}
+
+.vote-accepted-off {
+background-position: 0 -560px;
+
+display: block;
+margin: 0 auto;
+        text-align: center;
+}
+.vote-count-post {
+    padding-top: 2px;
+    padding-bottom: 2px;
+color: #555;
+    display: block;
+font-size: 24px;
+    text-align: center;
+}
+.vote span {
+display: block;
+color: #808185;
+font-weight: normal;
+}
+.avote-up-off{
+    text-align: center;
+    display: block;
+    cursor: pointer
+    background-position: 0 -265px;
+    display: block;
+    margin: 0 auto;
+    width: 41px;
+    height: 25px;
+}
+.avote-down-off{
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    background-position: 0 -265px;
+display: block;
+margin: 0 auto;
+width: 41px;
+height: 25px;
+}
+.avote-count-post {
+    padding-top: 2px;
+    padding-bottom: 2px;
+color: #555;
+    display: block;
+font-size: 24px;
+    text-align: center;
+}
+.avote-accepted-off {
+background-position: 0 -560px;
+
+display: block;
+margin: 0 auto;
+        text-align: center;
+}

@@ -38,7 +38,7 @@
                 <form id="post-form" action="submit.php" method="post" role="form" >
 
                     <input type="hidden"  type="text" name="uid" value=<? echo $_SESSION['user_id'];?>   id="uid">
-
+                    <input type="hidden" typeof="text" name="username" value="<? echo $_SESSION['user_name'];?>" id="username">
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" id="title" class="form-control" name="title"
@@ -55,6 +55,12 @@
 
                     <div id="tag-suggestions" style="display:none;
                                                                             width: 633px;"></div>
+
+                    </div>
+                    <div  class="">
+                        <label for="score">score</label>
+                        <input id='score' type="number" name="score" tabindex="213" style="width: 633px"
+                                        placeholder="must be integer"/>
                     </div>
                         <div id="question-only-section">
                         <div class="form-group" class="form-submit-cbt">

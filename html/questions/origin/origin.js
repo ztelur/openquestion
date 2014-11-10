@@ -91,6 +91,73 @@ $(document).ready(function () {
          });
 
     });
+
+
+//    新的可以单独分量的vote-up
+        $(".avote-up-off").click(function () {
+            var parent=$(this).parents(".votecell");
+            var aid=parent.attr("id");
+            var count=parent.find("[class=avote-count-post]",0).text();
+            var uid=$("#user").attr('uid');
+            //var qid=$("#question").attr("qid");
+            data={
+                aid:aid,
+                uid:uid,
+                up:true
+            };
+            $.post("../../lib/php/upvote/upvote.php",data, function (cdata, cstatus) {
+                alert(cdata)
+                if (cdata=="true") {
+                     parent.find("[class=avote-count-post]",0).text((parseInt(count)+1).toString());
+                } else {
+                     alert("you have upvoted!");
+                }
+
+            });
+
+        });
+     $(".avote-down-off").click(function () {
+            var parent=$(this).parents(".votecell");
+            var aid=parent.attr("id");
+            var count=parent.find("[class=avote-count-post]",0).text();
+            var uid=$("#user").attr('uid');
+            data={
+                aid:aid,
+                uid:uid,
+                up:true
+            };
+            $.post("../../lib/php/upvote/upvote.php",data, function (cdata, cstatus) {
+                alert(cdata)
+                if (cdata=="true") {
+                    parent.find("[class=avote-count-post]",0).text((parseInt(count)-1).toString());
+
+
+                } else {
+                     alert("you have upvoted!");
+                }
+
+            });
+
+        });
+
+     $(".avote-accepted-off").click(function () {
+         var parent=$(this).parents(".votecell");
+         var aid=parent.attr("id");
+         var qid=$("#question").attr("qid");
+         var data={
+             aid:aid,
+             qid:qid
+         }
+         $.post("../../lib/php/upvote/adopt.php",data,function (cdata,status) {
+                alert(cdata);
+                // 换图片
+                //其他的所有可以认可的符号都要hiden
+            if (cdata=="true") {
+                $(".avote-accepted-off").hide();
+            }
+
+         });
+     })
 });
 
 $(document).ready(function () {
@@ -101,8 +168,9 @@ $(document).ready(function () {
         $content=$("#editor").html();
         $data={"qid":$qid,"uid":$uid,"content":$content,"uname":$uname};
         $.post("origin/answersubmit.php",$data, function (data,status) {
+            alert(data);
             location.reload(true);
-            //alert(data);
+
         });
     });
 });

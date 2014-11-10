@@ -43,7 +43,7 @@ if (isset($_POST["username"])&&isset($_POST["password"])) {
                 <div class="topbar-links">
                     <div class="links-container">
                         <div class="collapse navbar-collapse">
-                            <form class="navbar-form navbar-right" role="search">
+                            <form class="navbar-form navbar-right" role="search" action="">
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="search" name="search"/>
                                 </div>

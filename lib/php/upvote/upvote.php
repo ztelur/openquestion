@@ -28,6 +28,7 @@ if (isset($_POST["qid"])&&isset($_POST["uid"])) {
     }
 }
 if (isset($_POST["aid"])&&isset($_POST["uid"])) {
+
     $sql=sprintf("SELECT * FROM answerupvote WHERE aid=%s AND uid=%s",
                                     mysql_escape_string($_POST["aid"]),mysql_escape_string($_POST["uid"]));
     $result=execsql($sql);
