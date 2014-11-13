@@ -15,7 +15,6 @@
        <script src="indexconfig.js"></script>
 
         <link rel="stylesheet" href="../../external/bootstrap/css/bootstrap.min.css">
-
         <link rel="stylesheet" type="text/css" href="../../css/origin.css">
         <link rel="stylesheet" type="text/css" href="login.css">
 
@@ -23,11 +22,24 @@
 <body>
         <script>
             $(document).ready(function () {
-                	var username=document.getElementById('username');
-	                username.addEventListener('blur',checkUsername,false);
-                	var button=document.getElementById("submitbutton");
-	                button.addEventListener('click',checkaccount,false);
-//                    addCheckListener();
+                	//对login的监听
+                    var username=document.getElementById('username');
+                    if (username) {
+                        username.addEventListener('blur', checkUsername, false);
+                    }
+                    var button=document.getElementById("submitbutton");
+	                if (button) {
+                        button.addEventListener('click', checkaccount, false);
+                    }
+                    //对signup的监听
+                	var username_r=document.getElementById('username_r');
+	                username_r.addEventListener('blur',checkRegisterName,false);
+                    var mail=document.getElementById('email');
+	                mail.addEventListener('blur',checkEmail);
+	                var pass2=document.getElementById('password2');
+	                pass2.addEventListener('blur',checkPasswordSame,false);
+                	var button=document.getElementById("submitbutton_r");
+	                button.addEventListener("click",checkRegister,false);
             });
         </script>
         <?
@@ -77,9 +89,11 @@
                                 </div>
                             </div>
                         </form>
+
                         <?php
                         } else {
                         ?>
+
                         <a href="?flag=login" title="log in to openquestion" class="">Log in</a>
                         <a href="?flag=signup" title="Sign up to openquestion" class="youarehere">Sign up</a>
                     </div>
@@ -87,7 +101,7 @@
                 <div>
                     <h2 class="title">Log in </h2>
 
-                    <form action="../../lib/checkaccount.php" method="post" name="log" id="logform" role="form">
+                    <form action="../../index.php" method="post" name="log" id="registerform" role="form">
                         <div class="form-group">
                             <label for="username">username</label>
                             <input type="text" id="username_r" name="username_r" placeholder="usename"
@@ -118,13 +132,17 @@
                             </div>
                         </div>
                     </form>
+
                     <?php
                     }
                         ?>
+
                     </div>
                 </div>
             </div>
         </div>
+
+
 
 
 </body>

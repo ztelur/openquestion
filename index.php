@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/origin.css">
         <link rel="stylesheet" type="text/css" href="css/qlistitem.css">
-
+        <link rel="stylesheet" type="text/css" href="css/topbar.css">
 
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -43,21 +43,47 @@
                     <div id="subheader" class="container">
                         <h1 id="h-top-question"> Top Questions</h1>
                         <div id="tabs" class="container">
-                            <ul class="pagination">
-                            <li><a>interesting</a></li>
-                            <li><a>hot</a></li>
-                            <li><a>week</a></li>
-                            <li><a>month</a></li>
+                            <ul class="nav nav-tabs" role="tablist" id="myTab">
+                            <li role="presentation" class="active"><a href="#hot" role="tab" data-toggle="tab" >hot</a></li>
+                            <li role="presentation" ><a href="#new" role="tab"data-toggle="tab">new</a ></li>
+                            <li role="presentation"><a href="#week" role="tab" data-toggle="tab">week</a ></li>
                                 </ul>
                         </div>
                     </div>
-                    <div id="qlist-wrapper">
-                        <div id="question-mini-list">
-                            <!--a question layout-->
-                            <?php
-                                    require_once("addquestionlist.php");
-                            ?>
-                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel1" class="tab-pane active" id="hot">
+                        <div id="qlist-wrapper">
+                            <div id="question-mini-list">
+                                <!--a question layout-->
+                                <?php
+                                        require_once("addquestionlist.php");
+                                        addquestionlist("upvote");
+                                ?>
+                        </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel2" class="tab-pane" id="new">
+                        <div id="qlist-wrapper">
+                            <div id="question-mini-list">
+                                <!--a question layout-->
+                                <?php
+                                        require_once("addquestionlist.php");
+                                        addquestionlist("time");
+                                ?>
+                        </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel3" class="tab-pane" id="week">
+                                                    <div id="qlist-wrapper">
+                            <div id="question-mini-list">
+                                <!--a question layout-->
+                                <?php
+                                        require_once("addquestionlist.php");
+                                        addquestionlist("upvote");
+                                ?>
+                        </div>
+                            </div>
+                        </div>
                 </div>
                 <!--slid bar-->
                 <div id="sidebar">

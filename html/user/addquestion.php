@@ -19,7 +19,7 @@ $sql=sprintf("SELECT qid,title,upvote,tags FROM question WHERE uid=%s",mysql_esc
                                 <tbody>';
         while($row=mysql_fetch_array($result,MYSQL_ASSOC)) {
             $count=$row["upvote"];
-            $href='../questions/'.urlencode($row['title']).'.php?qid='.urlencode($row['qid']);
+            $href='../questions/'.urlencode($row['qid']).'.php?qid='.urlencode($row['qid']);
             $taglists=decode($row["tags"],'../../lib/php/tags/tags.xml');
 
             foreach ($taglists as $elem ) {

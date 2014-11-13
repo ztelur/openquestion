@@ -14,7 +14,11 @@ if (isset($_POST["qid"])&&isset($_POST["uid"])&&isset($_POST["content"])&&isset(
                                                 mysql_escape_string($_POST["content"]));
     $result=execsql($sql);
     // 更新question的answernum
+
+    $sql=sprintf("UPDATE user SET anum=anum+1 WHERE uid=%s",$_POST["uid"]);
+    execsql($sql);
     $sql=sprintf("UPDATE question SET answernum=answernum+1 WHERE qid=%s",$_POST['qid']);
+    // 回答者的回答问题数加1
     $result=execsql($sql);
     echo $result;
 }

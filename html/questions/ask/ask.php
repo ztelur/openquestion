@@ -24,7 +24,7 @@
                 require("../../../lib/php/pagepart/topbar.php");
                 require("../../../lib/php/pagepart/header.php");
                /* 检查是否登陆，否则调到登陆界*/
-                if (!isset($_SESSION['authenticated'])) {
+                if (!isset($_SESSION['authenticated'])||$_SESSION['authenticated']==false) {
                     $url="../../user/login.php";
                     echo "<script language='javascript' type='text/javascript'>";
                     echo "alert('please log in firstly');";

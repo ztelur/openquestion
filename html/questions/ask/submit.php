@@ -12,7 +12,10 @@ require_once("../../../lib/php/tags/taglib.php");
 //TODO: 主要要有一个return的url，可以直接跳转到来的地方
 if (isset($_POST["title"])&&isset($_POST["content"])&&isset($_POST["tagname"])&&isset($_POST["id"])
                             &&isset($_POST["score"])) {
-    $filepath="../".$_POST["title"].".php";
+    $qid=writesql($_POST['title'],$_POST["id"],$_POST["tagname"],$_POST["score"]);
+
+//    $filepath="../".$_POST["title"].".php";
+    $filepath="../".$qid.".php";
 
     copyfile("../origin/origin.php",$filepath);
     // 处理新的html文件
@@ -22,7 +25,6 @@ if (isset($_POST["title"])&&isset($_POST["content"])&&isset($_POST["tagname"])&&
 
     // need write somthing inot the datbase
     // get the question id from the database
-    $qid=writesql($_POST['title'],$_POST["id"],$_POST["tagname"],$_POST["score"]);
 
     echo $filepath."?qid=".$qid;
 }
@@ -36,7 +38,7 @@ function writesql($title,$aid,$tagname,$score) {
                                                 $score);
         $result=execsql($sql);
             //扣除分数
-        $sql=sprintf("UPDATE user SET score=score-%s WHERE uid=%s",$score,mysql_escape_string($aid));
+        $sql=sprintf("UPDATE user SET score=score-%s,qnum=qnum+1 WHERE uid=%s",$score,mysql_escape_string($aid));
         $result=execsql($sql);
         $sql=sprintf("SELECT qid FROM question WHERE title='%s' AND uid=%s",mysql_escape_string($title),
                                                                                                 mysql_escape_string($aid));

@@ -6,6 +6,7 @@
 */
 var xhr=null;
 function addCheckListener () {
+    alert("dddd");
 	var username=document.getElementById('username');
 	username.addEventListener('blur',checkUsername,false);
 	var username_r=document.getElementById('username_r');
@@ -47,9 +48,9 @@ function checkUsername () {
 }
 function checkRegister () {
 	var name_r=document.getElementById("username_r").value;
-	var email_r=document.getElementById("email_r").value;
-	var password1=document.getElementById("password_r").value;
-	var password2=document.getElementById("password_r2").value;
+	var email_r=document.getElementById("email").value;
+	var password1=document.getElementById("password1").value;
+	var password2=document.getElementById("password2").value;
 	if (name_r!=null&&email_r!=null&&password1!=null&&password2!=null) {
 		checkRegisterRemote(name_r,email_r,password1,password2);
 	}
@@ -60,8 +61,8 @@ function checkRegister () {
 */
 function checkPasswordSame () {
 
-	var pass1=document.getElementById("password_r").value;
-	var pass2=document.getElementById("password_r2").value;
+	var pass1=document.getElementById("password1").value;
+	var pass2=document.getElementById("password2").value;
 	if (pass1!=pass2) {
 		alert("two password must be the same");
 	}
@@ -91,7 +92,7 @@ function checkRegisterName () {
 */
 function checkEmail () {
 
-	var email=document.getElementById("email_r").value;
+	var email=document.getElementById("email").value;
 	// index.php input type=email if brower not support html5
 	if (email==null) {
 		return;
@@ -153,6 +154,7 @@ function checkRegisterHandler () {
 	} else {
 		if (right=="true") {
 			document.getElementById("registerform").submit();
+            //$()
 		}
 		
 	}

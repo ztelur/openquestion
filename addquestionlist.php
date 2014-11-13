@@ -17,22 +17,28 @@ require_once("lib/php/tags/taglib.php");
  *      6 tags
  *      7 started time and author
  *  */
-$sql=sprintf("SELECT  qid,uid,title,tags,time,upvote,answernum FROM question");
-$result=execsql($sql);
-while ($row=mysql_fetch_array($result,MYSQL_ASSOC)) {
-    $usersql=sprintf("SELECT username FROM user WHERE uid=%s",$row['uid']);
-    $username=mysql_fetch_array(execsql($usersql),MYSQL_ASSOC)['username'];
-    $html=file_get_html("question.html");
-    // 修改内容
-    $tags=decode($row['tags'],"lib/php/tags/tags.xml");
-    $html->find("[class=question]",0)->id=$row['qid'];
-    $html->find("[class=badge]",0)->innertext=$row['upvote'];
-    $html->find("[class=badge]",1)->innertext=$row["answernum"];
-    $html->find("[class=panel-title]",0)->innertext=$row["title"];
-    $href=sprintf("html/questions/%s.php?qid=%s",$row["title"],$row["qid"]);
-    $html->find("[class=panel-title]",0)->href=$href;
-    $html->find('[class=author]',0)->innertext=$username;
-    $html->find("[class=time]",0)->innertext=$row['time'];
-    echo $html;
+function addquestionlist($orderby)
+{
+    $order = "answernum";
+    $order=$orderby;
+    $sql = sprintf("SELECT  qid,uid,title,tags,time,upvote,answernum FROM question ORDER  BY %s DESC ", $order);  //这是按照时间的顺序
+    $result = execsql($sql);
+//对问题进行一定的排序。
+    while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+        $usersql = sprintf("SELECT username FROM user WHERE uid=%s", $row['uid']);
+        $username = mysql_fetch_array(execsql($usersql), MYSQL_ASSOC)['username'];
+        $html = file_get_html("question.html");
+        // 修改内容
+        $tags = decode($row['tags'], "lib/php/tags/tags.xml");
+        $html->find("[class=question]", 0)->id = $row['qid'];
+        $html->find("[class=badge]", 0)->innertext = $row['upvote'];
+        $html->find("[class=badge]", 1)->innertext = $row["answernum"];
+        $html->find("[class=panel-title]", 0)->innertext = $row["title"];
+        $href = sprintf("html/questions/%s.php?qid=%s", $row["qid"], $row["qid"]);
+        $html->find("[class=panel-title]", 0)->href = $href;
+        $html->find('[class=author]', 0)->innertext = $username;
+        $html->find("[class=time]", 0)->innertext = $row['time'];
+        echo $html;
+    }
 }
 ?>

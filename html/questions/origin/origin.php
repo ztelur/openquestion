@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="origin/question.css">
     <link rel="stylesheet" href="../../css/origin.css">
     <script type="text/javascript" src="origin/origin.js"></script>
-    <title></title>
+    <script type="text/javascript" src="origin/ButtonListener.js"></script>
 </head>
     <div>
         <?php

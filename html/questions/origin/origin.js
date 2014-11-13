@@ -144,9 +144,11 @@ $(document).ready(function () {
          var parent=$(this).parents(".votecell");
          var aid=parent.attr("id");
          var qid=$("#question").attr("qid");
+         var score=$(".score").text();
          var data={
              aid:aid,
-             qid:qid
+             qid:qid,
+             score:score
          }
          $.post("../../lib/php/upvote/adopt.php",data,function (cdata,status) {
                 alert(cdata);
