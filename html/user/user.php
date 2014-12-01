@@ -6,6 +6,7 @@
     <meta http-equiv="content-type" content="text/html" charset="utf-8">
     <script src="../../external/js/jquery-1.11.1.min.js"></script>
     <script src="../../external/bootstrap/js/bootstrap.min.js"></script>
+    <script src="ButtonListener.js"></script>
     <link rel="stylesheet" href="../../external/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/origin.css">
     <link rel="stylesheet" href="user.css">
@@ -46,7 +47,7 @@
                                     </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
                                 </div>
                             </div>
                             </div>
@@ -79,7 +80,7 @@
                                     </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-primary" id="changepasswordbutton" data-dismiss="modal">Save changes</button>
                                 </div>
                             </div>
                             </div>

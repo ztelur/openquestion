@@ -63,7 +63,7 @@ if (isset($_GET["logout"])) {
                 <div class="topbar-links">
                     <div class="links-container">
                         <div class="collapse navbar-collapse">
-                            <form class="navbar-form navbar-right" role="search" action="">
+                            <form class="navbar-form navbar-right searchform" role="search" action="html/search/search.php" method="post">
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="search" name="search"/>
                                 </div>

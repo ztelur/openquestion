@@ -33,12 +33,12 @@
                                 <div class="subheader search-header">
                                     <h1>Search</h1>
                                 </div>
-                                <form id="bigsearch" action="<?php echo $_SERVER["PHP_SELF"];?>" method="get">
+                                <form id="bigsearch" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
                                     <table>
                                         <tbody>
                                             <tr>
                                                 <td class="col1">
-                                                    <input name="q" class="textbox" type="text" maxlength="140" value="">
+                                                    <input name="search" class="textbox" type="text" maxlength="140" value="" >
                                                 </td>
                                                 <td class="col2">
                                                     <input type="submit" value="search">
@@ -49,21 +49,19 @@
                                 </form>
                                 <div class="result-subheader">
                                     <h2 class="question-num">
-                                        12323
                                         <span class="result-label">results</span>
                                     </h2>
-                                    <div id="tabs">
-                                        <a class="hereyouare" href="">relevant</a>
-                                        <a class="">newest</a>
-                                        <a>votes</a>
-                                    </div>
                                 </div>
                                 <div id="qlist-wrapper">
                                     <div id="question-mini-list">
                                     <!--a question layout-->
-
+                                        <?php
+                                            require_once("searchquestion.php");
+                                        ?>
                                     </div>
+
                                 </div>
+
                                 </div>
 
 
