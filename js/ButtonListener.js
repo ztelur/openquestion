@@ -15,6 +15,8 @@ $(document).ready(function () {
     });
     $(".searchform").keypress(function (e) {
         if (e.which==13) {
+            var text=$(this).val();
+
             $(this).submit();
         }
     })

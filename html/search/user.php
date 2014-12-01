@@ -56,11 +56,7 @@
                                     <div id="question-mini-list">
                                     <!--a question layout-->
                                         <?php
-                                            if (isset($_POST["search"])) {
-                                                require_once("searchquestion.php");
-                                            } else if (isset($_POST["user"])) {
-                                                require_once("searchuser.php");
-                                            }
+                                            require_once("searchquestion.php");
                                         ?>
                                     </div>
 
