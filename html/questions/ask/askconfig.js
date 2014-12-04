@@ -126,5 +126,15 @@ $(document).ready(function () {
     });
    // 添加连接
     $("#login-link").attr({"href":"../../../html/user/login.php"});
+
+    //////////////////////////////----------------------------------------------
+    $("div#hmenu a#askquestion").attr({"disable":"true"});
+    $("#register-link").attr({"href":"../user/login.php?flag=signup"});
+    $("#login-link").attr({"href":"../user/login.php?flag=login"});
+    $("#dropdown-profile").attr({"disable":"true"});
+    $("#dropdown-logout").attr({"href":"../../../index.php?logout"})
+    $("#dropdown-askquestion").attr({"href":"/ask/ask.php"});
+    $("#topbarmainpage").attr({"href":"../../../index.php"});
+    $(".profile-me").attr({"disable":true});
 });
 

@@ -8,4 +8,6 @@ $(document).ready(function () {
     $("#dropdown-profile").attr({"href":"../user/user.php"});
     $("#dropdown-logout").attr({"href":"../../index.php?logout"})
     $("#dropdown-askquestion").attr({"href":"/ask/ask.php"});
+    $("#topbarmainpage").attr({"href":"../../index.php"})
+        $(".profile-me").attr({"href":"html/user/user.php?uid="+uid});
 });

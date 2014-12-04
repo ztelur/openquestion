@@ -13,6 +13,7 @@
             <meta http-equiv="content-type" content="text/html" charset="utf-8">
         <script src="../../external/js/jquery-1.11.1.min.js"></script>
         <script src="../../external/bootstrap/js/bootstrap.min.js"></script>
+        <script src="searchbuttonlistener.js"></script>
         <link rel="stylesheet" href="../../external/bootstrap/css/bootstrap.min.css">
             <link rel="stylesheet" type="text/css" href="search.css">
         <link rel="stylesheet" type="text/css" href="../../css/origin.css">
@@ -38,10 +39,10 @@
                                         <tbody>
                                             <tr>
                                                 <td class="col1">
-                                                    <input name="search" class="textbox" type="text" maxlength="140" value="" >
+                                                    <input name="search" class="textbox" type="text" maxlength="140" value="" id="searchinput">
                                                 </td>
                                                 <td class="col2">
-                                                    <input type="submit" value="search">
+                                                    <input type="button" value="search" id="searchbutton">
                                                 </td>
                                             </tr>
                                         </tbody>

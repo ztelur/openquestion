@@ -6,17 +6,25 @@ $(document).ready(function () {
     $("#register-link").attr({"href":"html/user/login.php?flag=signup"});
     $("#login-link").attr({"href":"html/user/login.php?flag=login"});
     var uid=$(".profile-me").attr("uid");
+    $(".profile-me").attr({"href":"html/user/user.php?uid="+uid});
     $("#dropdown-profile").attr({"href":"html/user/user.php?uid="+uid});
     $("#dropdown-logout").attr({"href":"?logout"})
     $("#dropdown-askquestion").attr({"href":"html/questions/ask/ask.php"});
     $('#myTab a').click(function (e) {
-    e.preventDefault()
+    e.preventDefault();
     $(this).tab('show')
     });
     $(".searchform").keypress(function (e) {
         if (e.which==13) {
-            var text=$(this).val();
-
+            e.preventDefault();
+            var text=$("#searchinput").val();
+            var testlist=text.split(':');
+            if (testlist.length==2) {
+                $("#searchinput").attr({"name":"user"});
+                $("#searchinput").val(testlist[1]);
+            }else {
+                alert(testlist[0]);
+            }
             $(this).submit();
         }
     })

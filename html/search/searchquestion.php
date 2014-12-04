@@ -14,9 +14,17 @@ require_once("../../external/simplehtmldom/simple_html_dom.php");
 require_once("../../lib/php/tags/taglib.php");
 global $searchnum;
 if (isset($_POST['search'])) {
+    $keyarray=explode('+',$_POST["search"]);
+    $sql="SELECT * FROM question WHERE ";
+    for($i=0;$i<count($keyarray);$i++) {
+        $addsql= sprintf("title LIKE '%%%s%%'", mysql_real_escape_string($keyarray[$i]));
+        $sql=$sql.$addsql;
+        if ($i!=count($keyarray)-1) {
+            $sql=$sql." AND ";
+        }
 
-    $sql = sprintf("SELECT * FROM question WHERE title LIKE '%%%s%%'", mysql_real_escape_string($_POST['search']));
-
+    }
+    echo $sql;
     $result = execsql($sql);
     $searchnum=mysql_num_rows($result);
     while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {

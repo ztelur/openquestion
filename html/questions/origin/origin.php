@@ -184,26 +184,8 @@
                             </table>
                         </div>
                         <div class="module community-bulletin"></div>
-                        <div class="module sidebar-linked">
-                            <h4 id="h-linked">Linked</h4>
-                            <div class="linked" >
-                                <div class="spacer">
-                                    <a href="" title="Vote Score"><div class="answer-votes default">0</div></a>
-                                    <a href="" class="question-hyperlink">Reader in swift</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="hot-network-questions" class="module">
-                            <h4>
-                                <a href="//8888/question?tab=hot" class="">Hot Network Questions</a>
-                                <ul>
-                                    <li>
-                                        <div class="" title=""></div>
-                                        <a href="">center of mass frame for massless particles</a>
-                                    </li>
-                                </ul>
-                            </h4>
-                        </div>
+
+
                     </div>
                 </div>
     </div>

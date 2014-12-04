@@ -20,6 +20,6 @@ if (isset($_GET["user"])) {
         $href = sprintf("html/user/user.php?uid=%s",  $row["uid"]);
         echo $html;
     }
-
+    echo "ddddddddddddddddddddd";
 }
 ?>

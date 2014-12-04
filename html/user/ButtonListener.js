@@ -6,7 +6,7 @@ $(document).ready(function () {
     $("#register-link").attr({"href":"login.php?flag=signup"});
     $("#login-link").attr({"href":"login.php?flag=login"});
     $("#dropdown-profile").attr({"href":"user.php"});
-    $("#dropdown-logout").attr({"href":"#?logout"})
+    $("#dropdown-logout").attr({"href":"../../../index.php?logout"});
     $("#dropdown-askquestion").attr({"href":"../questions/ask/ask.php"});
     $("#changepasswordbutton").click(function () {
 

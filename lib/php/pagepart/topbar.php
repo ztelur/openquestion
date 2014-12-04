@@ -56,16 +56,16 @@ if (isset($_GET["logout"])) {
         <nav class="navbar navbar-default navbar-inverse" role="navigation">
             <div class="container-fuild">
                 <div class="network-items">
-                    <a class="navbar-brand">
+                    <a class="navbar-brand" >
                         Open Question
                     </a>
                 </div>
                 <div class="topbar-links">
                     <div class="links-container">
                         <div class="collapse navbar-collapse">
-                            <form class="navbar-form navbar-right searchform" role="search" action="html/search/search.php" method="post">
+                            <form class="navbar-form navbar-right searchform" role="search" action="html/search/search.php" method="post" id="search">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="search" name="search"/>
+                                    <input type="text" class="form-control" placeholder="search" name="search" id="searchinput"/>
                                 </div>
                             </form>
                             <ul class="nav navbar-nav navbar-right">
@@ -73,7 +73,9 @@ if (isset($_GET["logout"])) {
                                ?>
                                     <li><a id="user" href="../../html/user/user.php" class="profile-me" uid="<? echo $_SESSION['user_id']?>">
                                             <div title="ztelur">
-                                                ztelur
+                                                <?php
+                                                    echo   $_SESSION['user_name'];
+                                                ?>
                                             </div>
                                             </a>
                                    </li>

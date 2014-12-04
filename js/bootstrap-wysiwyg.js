@@ -39,7 +39,7 @@
 				var commandArr = commandWithArgs.split(' '),
 					command = commandArr.shift(),
 					args = commandArr.join(' ') + (valueArg || '');
-                alert([command,0,args]);
+
 				document.execCommand(command, 0, args);
 
 				updateToolbar();
